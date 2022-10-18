@@ -1,0 +1,56 @@
+version: '3.4'
+services:
+
+  rasa-server:
+    image: rasa/rasa:3.0.8-full
+    working_dir: /app
+    build: "./"
+    restart: always
+    volumes:
+    - ./actions:/app/actions
+    - ./actions/db:/app/actions/db
+    - ./actions/price:/app/actions/price
+    - ./models:/app/models
+    - ./helper:/app/helper
+    - ./data:/app/data
+    - ./krg_address.db:/app/krg_address.db
+    - ./users_db.py:/app/users_db.py
+    - ./orders_db.py:/app/orders_db.py
+    - ./local_db_for_actions.py:/app/local_db_for_actions.py
+
+    command: ["rasa", "run","-m models", "--enable-api", "--cors","“*”", "-p 5006"]
+    ports:
+    - '5006:5006'
+    networks:
+    - all
+
+  rasa-actions-server:
+    image: rasa/rasa-sdk:latest
+    working_dir: /app
+    build: "./"
+    restart: always
+    volumes:
+    - ./actions:/app/actions
+    - ./actions/db:/app/actions/db
+    - ./actions/price:/app/actions/price
+    - ./models:/app/models
+    - ./helper:/app/helper
+    - ./data:/app/data
+    - ./krg_address.db:/app/krg_address.db
+    - ./users_db.py:/app/users_db.py
+    - ./orders_db.py:/app/orders_db.py
+    - ./local_db_for_actions.py:/app/local_db_for_actions.py
+
+    command: ["rasa", "run", "actions"]
+    ports:
+    - '5055:5055'
+    networks:
+    - all
+
+    
+
+networks:
+  all:
+    driver: bridge
+    driver_opts:
+      com.docker.network.enable_ipv6: "true"

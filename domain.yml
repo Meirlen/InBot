@@ -1,0 +1,352 @@
+version: '2.0'
+config:
+  store_entities_as_slots: true
+session_config:
+  session_expiration_time: 1800
+  carry_over_slots_to_new_session: true
+intents:
+- address:
+    use_entities: true
+# - first_question:
+#     use_entities: true  
+# - question_cost_trip:
+#     use_entities: true
+- goodbye:
+    use_entities: true
+# - inform:
+#     use_entities: true
+# - pause_conversation:
+#     use_entities: true
+- confirm:
+    use_entities: true
+- add_comment:
+    use_entities: true
+# - order_reservation:
+#     use_entities: true
+# - thanks:
+#     use_entities: true
+# - expensive_cost:
+#     use_entities: true
+# - utter_wish_pleasant_trip:
+#     use_entities: true
+# - free_car:
+#     use_entities: true   
+# - free_car+adress:
+#     use_entities: true        
+# - comfort:
+#     use_entities: true 
+# - car_type_not_exist:
+#     use_entities: true     
+# - ask_car_model:
+#     use_entities: true 
+- client_ask_car_after:
+    use_entities: true  
+- order_reservation:
+    use_entities: true  
+# - date_trip:
+#     use_entities: true
+# - sober_driver:
+#     use_entities: true
+# - order_multiple_cars:
+#     use_entities: true
+# - order:
+#     use_entities: true  
+- price:
+    use_entities: true
+# - order+adress:
+#     use_entities: true
+- bi_direct:
+    use_entities: true   
+- address_undefined:    
+    use_entities: true   
+
+# - order+bi_direct_adress:
+#     use_entities: true   
+# - price+comfort:
+#     use_entities: true  
+# - universal:
+#     use_entities: true  
+# - price+universal:
+#     use_entities: true  
+# - greet+order:
+#     use_entities: true  
+# - greet+price:
+#     use_entities: true  
+# - street+organization:  
+#     use_entities: true    
+# - address:  
+#     use_entities: true 
+# - bi_direct_info:    
+#     use_entities: true
+# - bi_direct_2info:    
+#     use_entities: true    
+- pause   
+- greet
+- greet+order
+- order
+- start   
+- restart    
+- deny
+- nlu_fallback
+- profile
+- bonus
+- history
+- admin
+- add_to_adress_2
+- cancel_fill_adress
+- out_of_scope
+
+entities:
+- address_name:
+    roles:
+    - org
+    - street
+    - to_org
+    - to_street
+    - macro_area
+    - from
+    - to
+
+- loc_name
+- key_name
+- apartment_number
+- house_number
+- f_number
+- car_type
+- car_model
+- date
+- time
+- preferences
+
+slots:
+
+  from_address:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: false
+    influence_conversation: true
+
+  from_house_number:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: false
+    influence_conversation: true
+
+  from_apartment_number:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: false
+    influence_conversation: true
+
+  to_address:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: false
+    influence_conversation: true  
+
+  to_house_number:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: false
+    influence_conversation: false
+   
+
+  help_human:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: false
+    influence_conversation: false
+
+  price_trip:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: false
+    influence_conversation: true  
+  
+
+  date:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false  
+
+  time:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false  
+
+  preferences:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false 
+
+  chat_id:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: false
+    influence_conversation: false
+
+  platform_id:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: false
+    influence_conversation: false
+
+  order_status:
+    type: categorical
+    values:
+      - free
+      - created
+      - wait_car
+      - car_arrived
+      - comment
+      - cancelled
+    initial_value: free
+    auto_fill: false
+    influence_conversation: true
+
+  comments:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: false
+    influence_conversation: true  
+
+  order_confirm:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: false
+    influence_conversation: true  
+    
+  phone_number:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: false
+    influence_conversation: true  
+
+
+  requested_slot:
+    type: rasa.shared.core.slots.UnfeaturizedSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+
+
+responses:
+  utter_test:
+  - text: Test test test!
+  utter_greet:
+  - text: здравствуйте, вас приветсвует такси майкудук . я вас слушаю!
+  utter_greet_secondary:
+  - text: говорите, слушаю вас!
+  utter_get_address:
+  - text: Минуточку. ищем машину...{from_address}
+  utter_cost_trip:
+  - text: стоимость поездки будет 5000 долларов.Вы согласны?
+  utter_goodbye:
+  - text: до свидания, приятной поездки!
+  utter_wish_pleasant_trip:
+  - text: до свидания, приятной поездки! Вы можете узнать о статусе заявки или отменить заявку набрав короткий номер 77
+  utter_order_canelled:
+  - text: ваш заказ отменен!
+  utter_answer_pause_conversation:
+  - text: да конечно.
+  utter_ask_from_org_name:
+  - text: ваш адрес пожалуйста? Org
+  utter_ask_to_org_name:
+  - text: Хорошо, куда поедете?
+  utter_ask_from_address_for_price:
+  - text: Откуда куда поедете?
+  utter_ask_to_address_for_price:
+  - text: Откуда куда поедете?
+  utter_goodbye_after_deny:
+  - text: хорошо, отменяем заявку. Что то еще?
+  utter_have_free_car:
+  - text: Да есть!
+  utter_make_order:
+  - text: Хорошо, оформляем заказ
+  utter_say_wait_time_car:
+  - text: Среднее время ожидания составляет около 5-10 минут
+  utter_ask_confirm:
+  - text: заявка сформирована   \n Откуда ":"  вы поедете с {from_address} до {to_address}, все правильно?
+  utter_address_slots:
+  - text: ваш заказ принят,оплата {price_trip},ожидайте автодозвон с номером машины
+  utter_undefined_question:
+  - text: Я вас не поняла?
+  utter_ask_car_model:
+  - text:  у нас доступны мерседес , ферарри , лексус. Какой марки машину предпочитаете? 
+  utter_universal_car_price:
+  - text:  универсал есть, доплата за груз 300,устраивает? 
+  utter_ask_date:
+  - text:  укажите день и время выезда? 
+  utter_ask_time:
+  - text:  укажите время выезда? 
+  utter_answer_car_type_not_exist:
+  - text: К сожалению мы не предоставляем такую услугу.
+  utter_answer_sober_driver:
+  - text:  да конечно,оплата такой услуги по тройному тарифу 
+  utter_answer_2_car:
+  - text: хорошо поедут на один адресс
+  utter_type_car_form_cancelled:
+  - text: хорошо, что то еще?
+  utter_default:
+  - text: Извините, я вас не поняла. Вы можете перефразировать?
+  utter_please_rephrase:
+  - text: Извините, я вас не поняла. Вы можете перефразировать?
+
+
+
+actions:
+- validate_address_form
+- validate_address_form_for_2_cars
+- action_restart
+- action_admin_bi_direct
+- action_admin_submit_template
+- action_set_reminder
+- action_admin_price_submit
+- action_admin_single_address
+- action_check_address_entity
+- action_check_address_entity_1
+- action_check_org_entity
+- action_confirm
+- action_confirm_orderra
+- action_handle_user_flow_step_1
+- action_handle_user_flow_step_2
+- action_add_comment
+- action_save_comment
+- action_ask_order_confirm
+- action_ask_comments
+- action_ask_phone_number
+- action_service_menu
+- action_ask_from_address
+- action_ask_to_address
+- action_ask_from_house_number
+- action_ask_from_apartment_number
+- action_admin
+- action_profile
+- action_pause
+- action_resume
+
+forms:
+  address_form:
+    required_slots:
+      phone_number:
+      - type: from_text
+      from_address:
+      - type: from_text
+      from_house_number:
+      - type: from_text
+      from_apartment_number:
+      - type: from_text
+      to_address:
+      - type: from_text
+      order_confirm:
+      - type: from_text
+      comments:
+      - type: from_text
+
+
+
+
+e2e_actions: []

@@ -1,0 +1,5 @@
+    [универсал](preferences)
+    [большой багажник](preferences)
+    оплата через [каспий](preferences)
+    [не курящий салон](preferences)
+    [иномарка](preferences)
