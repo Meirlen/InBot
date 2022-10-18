@@ -186,3 +186,10 @@ change_build_mode(is_release = True)
 # docker rm 5c7a2a2632b8
 # docker stop 5c7a2a2632b8
 # docker-compose up
+
+# git rm -r --cached .
+# git add .
+
+
+# Rasa 
+# rasa run --enable-api
