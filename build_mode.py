@@ -167,7 +167,7 @@ change_build_mode(is_release = True)
 # curl -fsSL https://get.docker.com -o get-docker.sh
 
 
-# git commit -m "Remove ignored files"
+#  git commit -m "global changes"
 #  git config --global user.email "miko_982@mail.ru"
 #  git config --global user.name "Meirlen"
 

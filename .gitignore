@@ -11,7 +11,8 @@ totorial/*
 db/*
 data_origin/*
 data_copy/*
-data/*
+actions/price/__pycache_*
+data/
 venv/*
 results/*
 audio_pre_proccess/*
