@@ -15,7 +15,7 @@ from actions.price.zone import *
 from actions.price.price_generator import *
 from telegram_api import *
 from callbot_api import *
-from local_db_for_actions import *
+from actions.local_db_for_actions import *
 from actions.action_helper import *
 from orders_db import insert_new_order
 
@@ -61,8 +61,7 @@ class ActionFlowStepOne(Action):
     def name(self):
         return "action_handle_user_flow_step_1"
 
-    def run(self, dispatcher: CollectingDispatcher, tracker, domain):
-        phone_number = tracker.get_slot('phone_number')
+    def run(self, dispatcher: CollectingDispatcher, tracker:Tracker, domain):
         order_status =  get_current_order_status(tracker)
         print('STATUS',order_status)
         merged_address_entitity = get_merged_address_entitity(tracker)
@@ -77,11 +76,16 @@ class ActionFlowStepOne(Action):
             if order_status == 'free':
                 # send order to the server
                 update_status(tracker,'wait_car')
-                chat_id = tracker.get_slot('chat_id')
+                
                 dispatcher.utter_message("Ваш заказ в оброботке...",kwargs=get_phone_number(tracker))
 
-                create_order_by_api(tracker) # order_id api return after created on the server
- 
+                order_id = get_created_order_id(tracker) # order_id api return after created on the server
+                
+                if order_id == None:
+                    dispatcher.utter_message("Произошла непредвиденная ошибка.Попробуйте чуть позже.",kwargs=get_phone_number(tracker))
+                    return None
+                else:
+                    update_order_id(tracker,order_id)
 
 
 
@@ -122,15 +126,15 @@ def show_cancle_btn(tracker,dispatcher,title):
 
 
 
-def create_order_by_api(tracker):
+def get_created_order_id(tracker):
     from_address,to_address,price_trip,phone_number,comment,platform = generate_price_info(tracker)
-    call_create_order_multi_proccess(tracker,from_address,to_address,price_trip,phone_number,comment,platform)
+    order_id = create_order(from_address,to_address,price_trip,phone_number,comment,platform)
 
     id_user = str(phone_number)[1:]
     insert_new_order(from_address,to_address,price_trip,id_user) # save in templates local db
     send_order_info_to_admin_telegram('Поступил новый заказ!',from_address,to_address,phone_number,platform) 
     send_message_to_telegram_chat(ADMIN_CHAT_ID,'Поступил новый заказ!')           
-    
+    return order_id
 
 
 

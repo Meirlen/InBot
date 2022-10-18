@@ -1,5 +1,5 @@
 from actions.app_constans import *
-from local_db_for_actions import *
+from actions.local_db_for_actions import *
 from actions.price.zone import search_coordinates
 
 price_dict = {

@@ -1,0 +1,867 @@
+version: "2.0"
+
+nlu:
+- intent: address_undefined
+  examples: |
+    - [тапчан]{"entity": "address_name" , "role": "org"}  на [татимбета]{"entity": "address_name" , "role": "street"}
+    - [тапчан]{"entity": "address_name" , "role": "org"}  [татимбета]{"entity": "address_name" , "role": "street"}
+    - где [восстановительный центр]{"entity": "address_name" , "role": "org"}  же есть [муканова]{"entity": "address_name" , "role": "street"}
+    - [кардиохирургический центр]{"entity": "address_name" , "role": "org"}  [орлова]{"entity": "address_name" , "role": "street"}
+    - [диацент]{"entity": "address_name" , "role": "org"}  на [муканова]{"entity": "address_name" , "role": "street"}
+    - [народный банк]{"entity": "address_name" , "role": "org"}  вот по [карла маркса]{"entity": "address_name" , "role": "street"}
+    - [сарыарка нан]{"entity": "address_name" , "role": "org"}  на [заводской]{"entity": "address_name" , "role": "street"}
+    - на [таксокомбинат]{"entity": "address_name" , "role": "org"}  на [ермекова]{"entity": "address_name" , "role": "street"}
+    - да за [тапсаном]{"entity": "address_name" , "role": "org"}  [таттмбета]{"entity": "address_name" , "role": "street"}
+    - [нардный банк]{"entity": "address_name" , "role": "org"}  по [карла маркса]{"entity": "address_name" , "role": "street"}
+    - [караганда жарык]{"entity": "address_name" , "role": "org"}  на [муканова]{"entity": "address_name" , "role": "street"}
+    - едем [народный банк]{"entity": "address_name" , "role": "org"}  на [карла марксе]{"entity": "address_name" , "role": "street"}
+    - [инфекционная больница]{"entity": "address_name" , "role": "org"}  на [охотской]{"entity": "address_name" , "role": "street"}
+    - здравствуйте можно на [банзай суши]{"entity": "address_name" , "role": "org"}  это по [назарбаева]{"entity": "address_name" , "role": "street"}
+    - этот [диацент]{"entity": "address_name" , "role": "org"}  где [аврора]{"entity": "address_name" , "role": "street"}
+    - на [горкомтранс]{"entity": "address_name" , "role": "org"}  [пригородный]{"entity": "address_name" , "role": "street"}
+    - на [береке]{"entity": "address_name" , "role": "org"}  на [сатыбалдина]{"entity": "address_name" , "role": "street"}
+    - [квш]{"entity": "address_name" , "role": "org"}  [ермекова]{"entity": "address_name" , "role": "street"}
+    - [олимп]{"entity": "address_name" , "role": "org"}  на [магнитогорской]{"entity": "address_name" , "role": "street"}
+    - машина [школа 74]{"entity": "address_name" , "role": "org"}  на [бабушкина]{"entity": "address_name" , "role": "street"}
+    - [13 школа]{"entity": "address_name" , "role": "org"}  на [бабушкина]{"entity": "address_name" , "role": "street"}
+    - [95 гимназия]{"entity": "address_name" , "role": "org"}  [магнитогорская]{"entity": "address_name" , "role": "street"}
+    - аха на [колос]{"entity": "address_name" , "role": "org"}  [кузембаева]{"entity": "address_name" , "role": "street"}
+    - [53 школа]{"entity": "address_name" , "role": "org"}  на [кузембаева]{"entity": "address_name" , "role": "street"}
+    - в [школу 74]{"entity": "address_name" , "role": "org"}  [бабушкина]{"entity": "address_name" , "role": "street"}
+    - здравствуйте девочки можно машину на [магнум]{"entity": "address_name" , "role": "org"}  на [космонавтов]{"entity": "address_name" , "role": "street"}
+    - здравствуйте [южный]{"entity": "address_name" , "role": "org"}  на [проспект нуркена]{"entity": "address_name" , "role": "street"}
+    - здравствуйте [гастроном]{"entity": "address_name" , "role": "org"}  на [ленина]{"entity": "address_name" , "role": "street"}
+    - [14 микрорайон]{"entity": "address_name" , "role": "street"}  [автостанция]{"entity": "address_name" , "role": "org"}
+    - в [15 микрорайон]{"entity": "address_name" , "role": "street"}  [южный]{"entity": "address_name" , "role": "org"}
+    - [17 мкрн]{"entity": "address_name" , "role": "street"}  [ласточка]{"entity": "address_name" , "role": "org"}
+    - [17 мкрн]{"entity": "address_name" , "role": "street"}  [детский мир]{"entity": "address_name" , "role": "org"}
+    - здравствуйте [горняк]{"entity": "address_name" , "role": "street"}  [сарыарка нан]{"entity": "address_name" , "role": "org"}
+    - алло здравствуйте [голубые пруды]{"entity": "address_name" , "role": "street"}  [4поликлиника]{"entity": "address_name" , "role": "org"}
+    - здравствуйте [12 микрорайон]{"entity": "address_name" , "role": "street"}  [аян]{"entity": "address_name" , "role": "org"}
+    - поеду на [голубые пруды]{"entity": "address_name" , "role": "street"}  [лада центр]{"entity": "address_name" , "role": "org"}
+    - здравствуйте [восток 3]{"entity": "address_name" , "role": "street"}  [8 школа]{"entity": "address_name" , "role": "org"}
+    - ало здравствуйте [голубые пруды]{"entity": "address_name" , "role": "street"}  [ескендир]{"entity": "address_name" , "role": "org"}
+    - на [голубые пруды]{"entity": "address_name" , "role": "street"}  [77 школа]{"entity": "address_name" , "role": "org"}
+    - [14 мкрн]{"entity": "address_name" , "role": "street"}  на этот [финансовый колледж]{"entity": "address_name" , "role": "org"}
+    - на [19]{"entity": "address_name" , "role": "street"}  [82 школу]{"entity": "address_name" , "role": "org"}
+    - а здравствуйте можно такси на [голубые пруды]{"entity": "address_name" , "role": "street"}  [4 поликлиника]{"entity": "address_name" , "role": "org"}
+    - [восток3]{"entity": "address_name" , "role": "street"}  [8 школа]{"entity": "address_name" , "role": "org"}
+    - [16 микрорайон]{"entity": "address_name" , "role": "street"}  в [реале]{"entity": "address_name" , "role": "org"}
+    - здравствуйте на [востоке 2]{"entity": "address_name" , "role": "street"}  [17 школа]{"entity": "address_name" , "role": "org"}
+    - аха на [востоке 2]{"entity": "address_name" , "role": "street"}  [олимп]{"entity": "address_name" , "role": "org"}
+    - [восток 2]{"entity": "address_name" , "role": "street"}  [олимп]{"entity": "address_name" , "role": "org"}
+    - [14 мкр]{"entity": "address_name" , "role": "street"}  [65 школа]{"entity": "address_name" , "role": "org"}
+    - поеду [восток 2]{"entity": "address_name" , "role": "street"}  [35 школа]{"entity": "address_name" , "role": "org"}
+    - а мне на [15 микрорайон]{"entity": "address_name" , "role": "street"}  [детский мир]{"entity": "address_name" , "role": "org"}
+    - тоже [голубые пруды]{"entity": "address_name" , "role": "street"}  но этот [4 поликлиника]{"entity": "address_name" , "role": "org"}
+    - [восток 3]{"entity": "address_name" , "role": "street"}  [8 школа]{"entity": "address_name" , "role": "org"}
+    - [12 микрорайон]{"entity": "address_name" , "role": "street"}  [9 гимназия]{"entity": "address_name" , "role": "org"}
+    - [12]{"entity": "address_name" , "role": "street"}  [аян]{"entity": "address_name" , "role": "org"}
+    - [17 мкр]{"entity": "address_name" , "role": "street"}  [казпочта]{"entity": "address_name" , "role": "org"}
+    - [голубые пруды]{"entity": "address_name" , "role": "street"}  [поликлиника №4]{"entity": "address_name" , "role": "org"}
+    - здравствуйте [11 а микрорайон]{"entity": "address_name" , "role": "street"}  [колледжсервис]{"entity": "address_name" , "role": "org"}
+    - [17]{"entity": "address_name" , "role": "street"}  [южный]{"entity": "address_name" , "role": "org"}
+    - здравствуйте [11а]{"entity": "address_name" , "role": "street"}  [глобал]{"entity": "address_name" , "role": "org"}
+    - [восток 5]{"entity": "address_name" , "role": "street"}  [замзам]{"entity": "address_name" , "role": "org"}
+    - на [18 квартале]{"entity": "address_name" , "role": "street"}  [додо пицца]{"entity": "address_name" , "role": "org"}
+    - здравствуйте [16 микрорайон]{"entity": "address_name" , "role": "street"}  [школа 76]{"entity": "address_name" , "role": "org"}
+    - здравствуйте [13 микрорайон]{"entity": "address_name" , "role": "street"}  это [олимп]{"entity": "address_name" , "role": "org"}  да
+    - в [17ю]{"entity": "address_name" , "role": "street"}  [школу №32]{"entity": "address_name" , "role": "org"}
+    - поеду на [19 мкр]{"entity": "address_name" , "role": "street"}  [стимул]{"entity": "address_name" , "role": "org"}
+    - мхм так на [восток 2]{"entity": "address_name" , "role": "street"}  мне надо в [ануар]{"entity": "address_name" , "role": "org"}
+    - здравствуйте [13]{"entity": "address_name" , "role": "street"}  [аян]{"entity": "address_name" , "role": "org"}
+    - можно мне в [17]{"entity": "address_name" , "role": "street"}  [южный]{"entity": "address_name" , "role": "org"}  такси
+    - да да да в [12м]{"entity": "address_name" , "role": "street"}  [глобал сити]{"entity": "address_name" , "role": "org"}
+    - здравствуйте [восток 3]{"entity": "address_name" , "role": "street"}  [ступени]{"entity": "address_name" , "role": "org"}
+    - здравствуйте [17]{"entity": "address_name" , "role": "street"}  [южный]{"entity": "address_name" , "role": "org"}
+    - здравствуйте [восток 1]{"entity": "address_name" , "role": "street"}  [огонек]{"entity": "address_name" , "role": "org"}
+    - в [15]{"entity": "address_name" , "role": "street"}  [сатурн]{"entity": "address_name" , "role": "org"}
+    - алло я [15]{"entity": "address_name" , "role": "street"}  на [сатурн]{"entity": "address_name" , "role": "org"}
+    - здравствуйте [12]{"entity": "address_name" , "role": "street"}  [аян]{"entity": "address_name" , "role": "org"}
+    - здравствуйте в [17]{"entity": "address_name" , "role": "street"}  [южный]{"entity": "address_name" , "role": "org"}
+    - на [горняк]{"entity": "address_name" , "role": "street"}  где [мясной двор]{"entity": "address_name" , "role": "org"}
+    - [12 микрорайон]{"entity": "address_name" , "role": "street"}  [аян]{"entity": "address_name" , "role": "org"}
+    - [восток 3]{"entity": "address_name" , "role": "street"}  [золотой родник]{"entity": "address_name" , "role": "org"}
+    - в [17]{"entity": "address_name" , "role": "street"}  в [реал]{"entity": "address_name" , "role": "org"}
+    - [14 микрорайон]{"entity": "address_name" , "role": "street"}  [олимп]{"entity": "address_name" , "role": "org"}  да
+    - на [14]{"entity": "address_name" , "role": "street"}  на [олимпе]{"entity": "address_name" , "role": "org"}
+    - [восток 3]{"entity": "address_name" , "role": "street"}  [золотой родник]{"entity": "address_name" , "role": "org"}  алло алло
+    - [восток 1]{"entity": "address_name" , "role": "street"}  [форса]{"entity": "address_name" , "role": "org"}
+    - [восток 1]{"entity": "address_name" , "role": "street"}  [36 школа]{"entity": "address_name" , "role": "org"}
+    - [15 микрорайон]{"entity": "address_name" , "role": "street"}  [61 школа]{"entity": "address_name" , "role": "org"}
+    - в [16]{"entity": "address_name" , "role": "street"}  в [школу 76ю]{"entity": "address_name" , "role": "org"}
+    - [18 микрорайон]{"entity": "address_name" , "role": "street"}  [пинта]{"entity": "address_name" , "role": "org"}
+    - алло здравствуйте [15 микрорайон]{"entity": "address_name" , "role": "street"}  [мясной двор]{"entity": "address_name" , "role": "org"}
+    - [030 квартал участок 082 район]{"entity": "address_name" , "role": "street"}  [эгофом]{"entity": "address_name" , "role": "org"}
+    - [21 микрорайон]{"entity": "address_name" , "role": "street"}  в [30 школу]{"entity": "address_name" , "role": "org"}
+    - [восток 1]{"entity": "address_name" , "role": "street"}  [форсаж]{"entity": "address_name" , "role": "org"}
+    - здравствуйте [14 микрорайон]{"entity": "address_name" , "role": "street"}  [61 школа]{"entity": "address_name" , "role": "org"}
+    - здравствуйте я это в [17]{"entity": "address_name" , "role": "street"}  [южный]{"entity": "address_name" , "role": "org"}
+    - [23]{"entity": "address_name" , "role": "street"}  [25 школа]{"entity": "address_name" , "role": "org"}
+    - здравствуйте [шахтерская]{"entity": "address_name" , "role": "street"}  на [77 школу]{"entity": "address_name" , "role": "org"}
+    - [17 микрорайон]{"entity": "address_name" , "role": "street"}  [53 школа]{"entity": "address_name" , "role": "org"}
+    - да на [2 квартале]{"entity": "address_name" , "role": "street"}  где [макдак]{"entity": "address_name" , "role": "org"}
+    - на [голубые пруды]{"entity": "address_name" , "role": "street"}  [57 школа]{"entity": "address_name" , "role": "org"}
+    - здравствуйте [19 микрорайон]{"entity": "address_name" , "role": "street"}  [61 школа]{"entity": "address_name" , "role": "org"}
+    - поедем на [голубые пруды]{"entity": "address_name" , "role": "street"}  [айгерим]{"entity": "address_name" , "role": "org"}
+    - [пруды]{"entity": "address_name" , "role": "street"}  [4 поликлиника]{"entity": "address_name" , "role": "org"}
+    - [голубые пруды]{"entity": "address_name" , "role": "street"}  [поликлиника 4]{"entity": "address_name" , "role": "org"}
+    - едем на [восток 3]{"entity": "address_name" , "role": "street"}  [8 школа]{"entity": "address_name" , "role": "org"}
+    - такси можно [степной 4]{"entity": "address_name" , "role": "street"}  [орхун медикал]{"entity": "address_name" , "role": "org"}
+    - [19 микрорайон]{"entity": "address_name" , "role": "street"}  [82 школа]{"entity": "address_name" , "role": "org"}
+    - здравствуйте [восток 5]{"entity": "address_name" , "role": "street"}  [68 школа]{"entity": "address_name" , "role": "org"}
+    - [23 микрорайон]{"entity": "address_name" , "role": "street"}  к [ежику]{"entity": "address_name" , "role": "org"}
+    - здравствуйте [19 микрорайон]{"entity": "address_name" , "role": "street"}  [82 школа]{"entity": "address_name" , "role": "org"}
+    - в [13]{"entity": "address_name" , "role": "street"}  [школа 54]{"entity": "address_name" , "role": "org"}
+    - здравствуйте [бухаржырау]{"entity": "address_name" , "role": "street"}  [46](house_number) [кафе дигермен]{"entity": "address_name" , "role": "org"}
+    - здравствуйте [складская]{"entity": "address_name" , "role": "street"}  [2](house_number) [магазин светофор]{"entity": "address_name" , "role": "org"}
+    - [кирпичная]{"entity": "address_name" , "role": "street"}  [14](house_number) [детский сад инкарим]{"entity": "address_name" , "role": "org"}
+    - здравствуйте девушка можно такси на [ермекова]{"entity": "address_name" , "role": "street"}  [58](house_number) [клуб аэрофит леди]{"entity": "address_name" , "role": "org"}
+    - здравствуйте [архитектурная]{"entity": "address_name" , "role": "street"}  [13](house_number) [кафе натали]{"entity": "address_name" , "role": "org"}
+    - добрый вечер этот [лободы]{"entity": "address_name" , "role": "street"}  [31](house_number) [магазин ирина]{"entity": "address_name" , "role": "org"}
+    - здравствуйте [бирюзова]{"entity": "address_name" , "role": "street"}  [23](house_number) а [детский садик акбота]{"entity": "address_name" , "role": "org"}
+    - [бухар жырау]{"entity": "address_name" , "role": "street"}  [46](house_number) [кафе дегирмен]{"entity": "address_name" , "role": "org"}
+    - [касыма аманжолова]{"entity": "address_name" , "role": "street"}  [162](house_number) это [гостиница космонавт]{"entity": "address_name" , "role": "org"}
+    - [жилстроевская]{"entity": "address_name" , "role": "street"}  [19](house_number) [магазин виола]{"entity": "address_name" , "role": "org"}
+    - здравствуйте в [магнитогорской]{"entity": "address_name" , "role": "street"}  [6 а](house_number) [клиника ависта]{"entity": "address_name" , "role": "org"}
+    - [ерубаева]{"entity": "address_name" , "role": "street"}  [47](house_number) [аптека форте]{"entity": "address_name" , "role": "org"}
+    - алло здравствуйте [ерубаева]{"entity": "address_name" , "role": "street"}  [48](house_number) [торговый дом абзал]{"entity": "address_name" , "role": "org"}
+    - здравствуйте можно такси [бирюзова]{"entity": "address_name" , "role": "street"}  [9](house_number) нам там с [школы гимназии 95]{"entity": "address_name" , "role": "org"}
+    - поедем [мамыраева]{"entity": "address_name" , "role": "street"}  [17](house_number) [садик айгерим]{"entity": "address_name" , "role": "org"}
+    - [назарбаева]{"entity": "address_name" , "role": "street"}  [37](house_number) [образовательный центр достык]{"entity": "address_name" , "role": "org"}
+    - здравствуйте [бухаржырау]{"entity": "address_name" , "role": "street"}  [66](house_number) [гостиница караганда]{"entity": "address_name" , "role": "org"}
+    - на [магнитогорскую]{"entity": "address_name" , "role": "street"}  [7](house_number) [клиника виста]{"entity": "address_name" , "role": "org"}
+    - [бухар жырау]{"entity": "address_name" , "role": "street"}  [75](house_number) [торговый дом мечта]{"entity": "address_name" , "role": "org"}
+    - здравствуйте девочки [бабушкино]{"entity": "address_name" , "role": "street"}  [27](house_number) [магазин дионис]{"entity": "address_name" , "role": "org"}
+    - так [бухар жырау]{"entity": "address_name" , "role": "street"}  [139](house_number) [клиника мерей]{"entity": "address_name" , "role": "org"}
+    - [космонавтов]{"entity": "address_name" , "role": "street"}  [11](house_number) [ресторан гульжан]{"entity": "address_name" , "role": "org"}
+    - поедем [гоголя]{"entity": "address_name" , "role": "street"}  [64](house_number) [магазин айгуль]{"entity": "address_name" , "role": "org"}
+    - ало девушка здравствуйте [магнитогорская]{"entity": "address_name" , "role": "street"}  [21](house_number) [магазин азия]{"entity": "address_name" , "role": "org"}
+    - аха на [муканова]{"entity": "address_name" , "role": "street"}  [47](house_number) [кафе мишель]{"entity": "address_name" , "role": "org"}
+    - [кабжанова]{"entity": "address_name" , "role": "street"}  [68](house_number) [ресторан дос]{"entity": "address_name" , "role": "org"}
+    - здравствуйте [майлина]{"entity": "address_name" , "role": "street"}  [22](house_number) [магазин гастроном]{"entity": "address_name" , "role": "org"}
+    - здравствуйте [клары цеткин]{"entity": "address_name" , "role": "street"}  [46](house_number) [рынок горняк]{"entity": "address_name" , "role": "org"}
+    - [мамыраева]{"entity": "address_name" , "role": "street"}  [22](house_number) [магазин эксклюзив]{"entity": "address_name" , "role": "org"}
+    - [архитектурная]{"entity": "address_name" , "role": "street"}  [4](house_number) [магазин продукты]{"entity": "address_name" , "role": "org"}
+    - здравствуйте [магнитогорская]{"entity": "address_name" , "role": "street"}  [38](house_number) [магазин авто]{"entity": "address_name" , "role": "org"}
+    - здравствуйте девочки можно машину на [бабушкина]{"entity": "address_name" , "role": "street"}  [23](house_number) [магазин дионис]{"entity": "address_name" , "role": "org"}
+    - здравствуйте можно на [кузембаева]{"entity": "address_name" , "role": "street"}  [41](house_number) [магазин дашенька]{"entity": "address_name" , "role": "org"}
+    - здравствуйте девушка [волочаевская]{"entity": "address_name" , "role": "street"}  [7](house_number) [детское кафе балажан]{"entity": "address_name" , "role": "org"}
+    - [карла маркса]{"entity": "address_name" , "role": "street"}  [7](house_number) [кафе айнур]{"entity": "address_name" , "role": "org"}
+    - ало здравствуйте такси можно [магнитогорская]{"entity": "address_name" , "role": "street"}  [29](house_number) [магазин алька]{"entity": "address_name" , "role": "org"}
+    - [бухаржырау]{"entity": "address_name" , "role": "street"}  [46](house_number) [кафе дегирмен]{"entity": "address_name" , "role": "org"}
+    - так [бульвар мира]{"entity": "address_name" , "role": "street"}  [64](house_number) [студия гранат]{"entity": "address_name" , "role": "org"}
+    - [бухар жырау]{"entity": "address_name" , "role": "street"}  [126](house_number) [кафе азия]{"entity": "address_name" , "role": "org"}
+    - [роза люксембург]{"entity": "address_name" , "role": "street"}  [47](house_number) [магазин визит]{"entity": "address_name" , "role": "org"}
+    - [магнитогорская]{"entity": "address_name" , "role": "street"}  [29](house_number) [магазин алька]{"entity": "address_name" , "role": "org"}
+    - [старогорняцкая]{"entity": "address_name" , "role": "street"}  [20](house_number) [магазин светофор]{"entity": "address_name" , "role": "org"}
+    - здравствуйте можно [магнитогорская]{"entity": "address_name" , "role": "street"}  [29](house_number) [магазин алька]{"entity": "address_name" , "role": "org"}
+    - [бирюзова]{"entity": "address_name" , "role": "street"}  [9](house_number) [магазин айжан]{"entity": "address_name" , "role": "org"}
+    - здравствуйте [магнитогорская]{"entity": "address_name" , "role": "street"}  [27](house_number) [салон сиеста]{"entity": "address_name" , "role": "org"}
+    - [мустафина]{"entity": "address_name" , "role": "street"}  [26](house_number) где [магазин алатау]{"entity": "address_name" , "role": "org"}
+    - здравствуйте [привокзальная]{"entity": "address_name" , "role": "street"}  [10](house_number) [магазин доброцен]{"entity": "address_name" , "role": "org"}
+    - алло здравствуйте можно такси [молокова]{"entity": "address_name" , "role": "street"}  [121](house_number) [кафе арабика]{"entity": "address_name" , "role": "org"}
+    - [гапеева]{"entity": "address_name" , "role": "street"}  [1](house_number) [кафе куырдак]{"entity": "address_name" , "role": "org"}
+    - здравствуйте [космонавта]{"entity": "address_name" , "role": "street"}  [11](house_number) [ресторан гульжан]{"entity": "address_name" , "role": "org"}
+    - [лихачева]{"entity": "address_name" , "role": "street"}  [16](house_number) [магазин тамыз]{"entity": "address_name" , "role": "org"}
+    - на [гончарную]{"entity": "address_name" , "role": "street"}  [30](house_number) где [кафе арзу]{"entity": "address_name" , "role": "org"}
+    - [строителей]{"entity": "address_name" , "role": "street"}  [6](house_number) [кинотеатр сарыарка]{"entity": "address_name" , "role": "org"}
+    - [белинского]{"entity": "address_name" , "role": "street"}  [5](house_number) [магазин аяулым]{"entity": "address_name" , "role": "org"}
+    - [бирюзова]{"entity": "address_name" , "role": "street"}  [23](house_number) [садик акбота]{"entity": "address_name" , "role": "org"}
+    - [академическая]{"entity": "address_name" , "role": "street"}  [9](house_number) [университет кооперативный экономический]{"entity": "address_name" , "role": "org"}
+    - [сейфулина]{"entity": "address_name" , "role": "street"}  [11](house_number) [кафе натали]{"entity": "address_name" , "role": "org"}
+    - [проспект назарбаева]{"entity": "address_name" , "role": "street"}  [33](house_number) [стоматология ердос]{"entity": "address_name" , "role": "org"}
+    - я поеду на [магнитогорскую]{"entity": "address_name" , "role": "street"}  [7 а](house_number) [клиника ависта]{"entity": "address_name" , "role": "org"}
+    - [бабушкина]{"entity": "address_name" , "role": "street"}  [23](house_number) [магазин ралли]{"entity": "address_name" , "role": "org"}
+    - [муканова]{"entity": "address_name" , "role": "street"}  [26](house_number) [салон красоты дуэт]{"entity": "address_name" , "role": "org"}
+    - ага [магнитогорская]{"entity": "address_name" , "role": "street"}  [7 а](house_number) [клиника ависта]{"entity": "address_name" , "role": "org"}
+    - здравствуйте [муканова]{"entity": "address_name" , "role": "street"}  [26](house_number) [салон красоты дуэт]{"entity": "address_name" , "role": "org"}
+    - здравствуйте [ермекова]{"entity": "address_name" , "role": "street"}  [50](house_number) [магазин волна]{"entity": "address_name" , "role": "org"}
+    - поедем на [кемеровскую]{"entity": "address_name" , "role": "street"}  [57](house_number) [магазин профи сад]{"entity": "address_name" , "role": "org"}
+    - [актюбинская]{"entity": "address_name" , "role": "street"}  [58а](house_number) [детсадик ступени]{"entity": "address_name" , "role": "org"}
+    - поедем [октябрьская]{"entity": "address_name" , "role": "street"}  [51](house_number) потом [магазин сатурн]{"entity": "address_name" , "role": "org"}
+    - [штурманская]{"entity": "address_name" , "role": "street"}  [21](house_number) [гостиница акжол]{"entity": "address_name" , "role": "org"}
+    - [гапеева]{"entity": "address_name" , "role": "street"}  [1в](house_number) [автосалон бахус]{"entity": "address_name" , "role": "org"}
+    - [магнитогорская]{"entity": "address_name" , "role": "street"}  [40](house_number) там [стоматология акбота]{"entity": "address_name" , "role": "org"}
+    - [цеткина]{"entity": "address_name" , "role": "street"}  [3](house_number) [садик алтын]{"entity": "address_name" , "role": "org"}
+    - здравствуйте [бирюзова]{"entity": "address_name" , "role": "street"}  [23 а](house_number) [детский садки акбота]{"entity": "address_name" , "role": "org"}
+    - здравствуйте [складская]{"entity": "address_name" , "role": "street"}  [2а](house_number) [магазин светофор]{"entity": "address_name" , "role": "org"}
+    - здравствуйте можно [магнитогорская]{"entity": "address_name" , "role": "street"}  [21](house_number) [магазин азия]{"entity": "address_name" , "role": "org"}
+    - здравствуйте [12]{"entity": "address_name" , "role": "street"}  [14](house_number) [магазин бастал]{"entity": "address_name" , "role": "org"}
+    - [восток 5]{"entity": "address_name" , "role": "street"}  [12](house_number) [магазин рубин]{"entity": "address_name" , "role": "org"}
+    - [13 микрорайон]{"entity": "address_name" , "role": "street"}  [дом 25](house_number) [магазин дархан]{"entity": "address_name" , "role": "org"}
+    - доброе утро [11а]{"entity": "address_name" , "role": "street"}  [20а](house_number) [садик армашка]{"entity": "address_name" , "role": "org"}
+    - здравствуйте [1 квартал]{"entity": "address_name" , "role": "street"}  [дом 6](house_number) [магазин жибек]{"entity": "address_name" , "role": "org"}
+    - [13]{"entity": "address_name" , "role": "street"}  [9](house_number) [магазин журнель]{"entity": "address_name" , "role": "org"}
+    - [16]{"entity": "address_name" , "role": "street"}  [47](house_number) [магазин бахтияр]{"entity": "address_name" , "role": "org"}
+    - здравствуйте девушка [12]{"entity": "address_name" , "role": "street"}  [13](house_number) [кафе жулдыз]{"entity": "address_name" , "role": "org"}
+    - здравствуйте можно пожалуйста на [восток 1]{"entity": "address_name" , "role": "street"}  [дом 13](house_number) [парикмахерская млена]{"entity": "address_name" , "role": "org"}
+    - алло [17]{"entity": "address_name" , "role": "street"}  [50](house_number) [магазин дуэт]{"entity": "address_name" , "role": "org"}
+    - [восток 2]{"entity": "address_name" , "role": "street"}  [дом 7](house_number) [стоматология стома]{"entity": "address_name" , "role": "org"}
+    - [12]{"entity": "address_name" , "role": "street"}  [51](house_number) [магазин арзан]{"entity": "address_name" , "role": "org"}
+    - здравствуйте [19 микрорайон]{"entity": "address_name" , "role": "street"}  [дом 43](house_number) [стоматология жемчуг]{"entity": "address_name" , "role": "org"}
+    - [12]{"entity": "address_name" , "role": "street"}  [13](house_number) [кафе жулдыз]{"entity": "address_name" , "role": "org"}
+    - здравствуйте можно [восток 2]{"entity": "address_name" , "role": "street"}  [дом 7](house_number) [стоматология стома]{"entity": "address_name" , "role": "org"}
+    - здравствуйте [15]{"entity": "address_name" , "role": "street"}  [3 а](house_number) [магазин наида]{"entity": "address_name" , "role": "org"}
+    - здравствуйте [квартал 1]{"entity": "address_name" , "role": "street"}  [дом 2](house_number) [магазин тумар]{"entity": "address_name" , "role": "org"}
+    - здравствуйте можно [16 микрорайон]{"entity": "address_name" , "role": "street"}  [9 дом](house_number) на надо [ресторан бенефит]{"entity": "address_name" , "role": "org"}
+    - здравствуйте [12 мкр]{"entity": "address_name" , "role": "street"}  [дом 11 а](house_number) [парикмахерская сабина]{"entity": "address_name" , "role": "org"}
+    - [степной 1]{"entity": "address_name" , "role": "street"}  [дом 29](house_number) [клиника нурболат]{"entity": "address_name" , "role": "org"}
+    - [восток 3]{"entity": "address_name" , "role": "street"}  [дом 14](house_number) [магазин пышка]{"entity": "address_name" , "role": "org"}
+    - здравствуйте девочки можно [восток 3]{"entity": "address_name" , "role": "street"}  [16 дом](house_number) [магазин импульс]{"entity": "address_name" , "role": "org"}
+    - [17]{"entity": "address_name" , "role": "street"}  [52](house_number) и [магазин юмит]{"entity": "address_name" , "role": "org"}
+    - здравствуйте можно такси [голубые пруды]{"entity": "address_name" , "role": "street"}  [дом 13](house_number) [магазин гульмира]{"entity": "address_name" , "role": "org"}
+    - здравствуйте [16]{"entity": "address_name" , "role": "street"}  [37](house_number) [магазин отдых]{"entity": "address_name" , "role": "org"}
+    - здравствуйте [восток 5]{"entity": "address_name" , "role": "street"}  [дом 6](house_number) [магазин береке]{"entity": "address_name" , "role": "org"}
+    - [восток 5]{"entity": "address_name" , "role": "street"}  [6](house_number) [магазин береке]{"entity": "address_name" , "role": "org"}
+    - [13]{"entity": "address_name" , "role": "street"}  [13](house_number) [кафе жулдыз]{"entity": "address_name" , "role": "org"}
+    - алло здравствуйте [12]{"entity": "address_name" , "role": "street"}  [22](house_number) [магазин турист]{"entity": "address_name" , "role": "org"}
+    - здравствуйте [восток 5]{"entity": "address_name" , "role": "street"}  [дом 22](house_number) [магазин эксклюзив]{"entity": "address_name" , "role": "org"}
+    - здравствуйте можно пожалуйста [15 микрорайон]{"entity": "address_name" , "role": "street"}  [30 дом](house_number) [магазин валентина]{"entity": "address_name" , "role": "org"}
+    - здравствуйте [14]{"entity": "address_name" , "role": "street"}  [32](house_number) [магазин фемида]{"entity": "address_name" , "role": "org"}
+    - здравствуйте [14]{"entity": "address_name" , "role": "street"}  [8 дом](house_number) [магазин казахстан]{"entity": "address_name" , "role": "org"}
+    - на [18]{"entity": "address_name" , "role": "street"}  [8 дом](house_number) на этот [салон ирис]{"entity": "address_name" , "role": "org"}
+    - на [восток 5]{"entity": "address_name" , "role": "street"}  [дом 13](house_number) [магазин вершина]{"entity": "address_name" , "role": "org"}
+    - здравствуйте можно такси на [восток 3]{"entity": "address_name" , "role": "street"}  [дом 8](house_number) [аптека солнечная]{"entity": "address_name" , "role": "org"}
+    - ало здравствуйте [15 микрорайон]{"entity": "address_name" , "role": "street"}  [30 дом](house_number) [магазин валентина]{"entity": "address_name" , "role": "org"}  ало
+    - [19]{"entity": "address_name" , "role": "street"}  [17](house_number) [магазин идеал]{"entity": "address_name" , "role": "org"}
+    - [12]{"entity": "address_name" , "role": "street"}  [17](house_number) [кафе жулдыз]{"entity": "address_name" , "role": "org"}
+    - [12]{"entity": "address_name" , "role": "street"}  [29](house_number) да [магазин креветка]{"entity": "address_name" , "role": "org"}
+    - здравствуйте [16 микрорайон]{"entity": "address_name" , "role": "street"}  [37 дом](house_number) [магазин ордер]{"entity": "address_name" , "role": "org"}
+    - здравствуйте девочки [12]{"entity": "address_name" , "role": "street"}  [22](house_number) а [магазин турист]{"entity": "address_name" , "role": "org"}
+    - я на [11 а]{"entity": "address_name" , "role": "street"}  [дом 27](house_number) где [магазин береке]{"entity": "address_name" , "role": "org"}
+    - здравствуйте [степной 1]{"entity": "address_name" , "role": "street"}  [29](house_number) [стоматология нурболат]{"entity": "address_name" , "role": "org"}
+    - [13]{"entity": "address_name" , "role": "street"}  [17](house_number) [магазин продукты]{"entity": "address_name" , "role": "org"}
+    - [12]{"entity": "address_name" , "role": "street"}  [11а](house_number) [магазин алуа]{"entity": "address_name" , "role": "org"}
+    - здравствуйте [12]{"entity": "address_name" , "role": "street"}  [29](house_number) [магазин фелида]{"entity": "address_name" , "role": "org"}
+    - [15]{"entity": "address_name" , "role": "street"}  [23](house_number) [магазин автомир]{"entity": "address_name" , "role": "org"}
+    - здравствуйте [12]{"entity": "address_name" , "role": "street"}  [29](house_number) [магазин айгерим]{"entity": "address_name" , "role": "org"}
+    - здравствуйте [шахтеров]{"entity": "address_name" , "role": "street"}  [40](house_number) [бизнес центр мирас]{"entity": "address_name" , "role": "org"}
+    - алло здравствуйте можно такси [восток 3]{"entity": "address_name" , "role": "street"}  [17](house_number) [магазин престиж]{"entity": "address_name" , "role": "org"}
+    - здравствуйте [восток 3]{"entity": "address_name" , "role": "street"}  [дом 17](house_number) [магазин престиж]{"entity": "address_name" , "role": "org"}
+    - [12 микрорайон]{"entity": "address_name" , "role": "street"}  [дом 22](house_number) [магазин азым]{"entity": "address_name" , "role": "org"}
+    - здравствуйте [19 микрорайон]{"entity": "address_name" , "role": "street"}  [45 б](house_number) [детский сад дарынды бала]{"entity": "address_name" , "role": "org"}
+    - [1 квартал]{"entity": "address_name" , "role": "street"}  [дом 2](house_number) [магазин тумар]{"entity": "address_name" , "role": "org"}
+    - здравствуйте [12 микрорайон]{"entity": "address_name" , "role": "street"}  [5 дом](house_number) [аптека форте плюс]{"entity": "address_name" , "role": "org"}
+    - [15]{"entity": "address_name" , "role": "street"}  [7 дом](house_number) [детский садик акбола]{"entity": "address_name" , "role": "org"}
+    - [язева]{"entity": "address_name" , "role": "street"}  [8](house_number) [133 аптека]{"entity": "address_name" , "role": "org"}
+    - [ерубаева]{"entity": "address_name" , "role": "street"}  [43](house_number) [больница областная]{"entity": "address_name" , "role": "org"}
+    - здравствуйте [гвардейская]{"entity": "address_name" , "role": "street"}  [12](house_number) на [фемиду]{"entity": "address_name" , "role": "org"}
+    - здравствуйте [ермекова]{"entity": "address_name" , "role": "street"}  [18](house_number) [аланда]{"entity": "address_name" , "role": "org"}
+    - ну да [аманжолова]{"entity": "address_name" , "role": "street"}  [10](house_number) [гиппократ]{"entity": "address_name" , "role": "org"}  это да
+    - [карла маркса]{"entity": "address_name" , "role": "street"}  [5](house_number) [олимп]{"entity": "address_name" , "role": "org"}
+    - здравствуйте [майлина]{"entity": "address_name" , "role": "street"}  [22](house_number) [гастроном]{"entity": "address_name" , "role": "org"}
+    - [шахтеров]{"entity": "address_name" , "role": "street"}  [52](house_number) на [олимп]{"entity": "address_name" , "role": "org"}
+    - а так [касыма аманжолова]{"entity": "address_name" , "role": "street"}  [96](house_number) [турецкий лицей]{"entity": "address_name" , "role": "org"}  там
+    - [тишбек аханова]{"entity": "address_name" , "role": "street"}  [56](house_number) [народный банк]{"entity": "address_name" , "role": "org"}
+    - ало здравствуйте [анжерская]{"entity": "address_name" , "role": "street"}  [37](house_number) будет с [сатурна]{"entity": "address_name" , "role": "org"}
+    - [линейная]{"entity": "address_name" , "role": "street"}  [20а](house_number) [ануар]{"entity": "address_name" , "role": "org"}
+    - да [машинсткая]{"entity": "address_name" , "role": "street"}  [26](house_number) с [южного]{"entity": "address_name" , "role": "org"}
+    - [строителей]{"entity": "address_name" , "role": "street"}  [13](house_number) [аян]{"entity": "address_name" , "role": "org"}
+    - [магнитогорская]{"entity": "address_name" , "role": "street"}  [6](house_number) [дикая лоза]{"entity": "address_name" , "role": "org"}
+    - [казахстанская]{"entity": "address_name" , "role": "street"}  [1](house_number) [стадион шахтер]{"entity": "address_name" , "role": "org"}
+    - доброе [магнитогорская]{"entity": "address_name" , "role": "street"}  [14](house_number) на [таир]{"entity": "address_name" , "role": "org"}
+    - [гоголя]{"entity": "address_name" , "role": "street"}  [47](house_number) [одиссея]{"entity": "address_name" , "role": "org"}
+    - [трудовая]{"entity": "address_name" , "role": "street"}  [27](house_number) [33 шахта]{"entity": "address_name" , "role": "org"}
+    - [потанина]{"entity": "address_name" , "role": "street"}  [127](house_number) [хантер газ]{"entity": "address_name" , "role": "org"}
+    - здравствуйте [чапаева]{"entity": "address_name" , "role": "street"}  [64](house_number) в [доскей]{"entity": "address_name" , "role": "org"}
+    - девушка здравствуйте можно пожалуйста в [пригородная]{"entity": "address_name" , "role": "street"}  [1а](house_number) [автокомплекс 007]{"entity": "address_name" , "role": "org"}
+    - [белинского]{"entity": "address_name" , "role": "street"}  [18](house_number) это за [спартаком]{"entity": "address_name" , "role": "org"}
+    - здравствуйте [бабушкина]{"entity": "address_name" , "role": "street"}  [23](house_number) [шрот]{"entity": "address_name" , "role": "org"}
+    - [гоголя]{"entity": "address_name" , "role": "street"}  [95](house_number) [инфинити]{"entity": "address_name" , "role": "org"}
+    - [бирюзова]{"entity": "address_name" , "role": "street"}  [22](house_number) [городская больница номер 1]{"entity": "address_name" , "role": "org"}
+    - [майлина]{"entity": "address_name" , "role": "street"}  [22](house_number) [гастроном]{"entity": "address_name" , "role": "org"}
+    - на [строителей]{"entity": "address_name" , "role": "street"}  [35](house_number) тоже [светофор]{"entity": "address_name" , "role": "org"}
+    - [сакена]{"entity": "address_name" , "role": "street"}  [1](house_number) на [аврору]{"entity": "address_name" , "role": "org"}  едут
+    - [чкалова]{"entity": "address_name" , "role": "street"}  [5](house_number) [эстетик клаб]{"entity": "address_name" , "role": "org"}
+    - здравствуйте [сакена]{"entity": "address_name" , "role": "street"}  [17](house_number) [инфекционный госпиталь]{"entity": "address_name" , "role": "org"}
+    - [аманжолова]{"entity": "address_name" , "role": "street"}  [96 а](house_number) [центр умид]{"entity": "address_name" , "role": "org"}
+    - [университетская]{"entity": "address_name" , "role": "street"}  [28](house_number) [каргу]{"entity": "address_name" , "role": "org"}
+    - [сакена]{"entity": "address_name" , "role": "street"}  [13](house_number) [макажановка]{"entity": "address_name" , "role": "org"}
+    - здравствуйте [магнитогорская]{"entity": "address_name" , "role": "street"}  [44](house_number) [олимп]{"entity": "address_name" , "role": "org"}
+    - [зелинского]{"entity": "address_name" , "role": "street"}  [22](house_number) [симур]{"entity": "address_name" , "role": "org"}
+    - здравствуйте [бухаржырау]{"entity": "address_name" , "role": "street"}  [86](house_number) [магнум]{"entity": "address_name" , "role": "org"}
+    - [кривогуза]{"entity": "address_name" , "role": "street"}  [7](house_number) [музыкальный интернат]{"entity": "address_name" , "role": "org"}
+    - девочки [жамбыла]{"entity": "address_name" , "role": "street"}  [17](house_number) [музыкальная школа номер 2]{"entity": "address_name" , "role": "org"}
+    - на [приканальная]{"entity": "address_name" , "role": "street"}  [31](house_number) в [диацент]{"entity": "address_name" , "role": "org"}
+    - на [ерубаева]{"entity": "address_name" , "role": "street"}  [8](house_number) [гиппократ]{"entity": "address_name" , "role": "org"}
+    - [чкалова]{"entity": "address_name" , "role": "street"}  [11](house_number) [трава]{"entity": "address_name" , "role": "org"}
+    - здравствуйте [карла маркса]{"entity": "address_name" , "role": "street"}  [7 б](house_number) [народный банк]{"entity": "address_name" , "role": "org"}
+    - дада [карла маркса]{"entity": "address_name" , "role": "street"}  [7 б](house_number) [народный банк]{"entity": "address_name" , "role": "org"}
+    - [муканова]{"entity": "address_name" , "role": "street"}  [5](house_number) на [таир]{"entity": "address_name" , "role": "org"}
+    - здравствуйте [бухар жырау]{"entity": "address_name" , "role": "street"}  [102](house_number) [империя меха]{"entity": "address_name" , "role": "org"}
+    - [кайнар]{"entity": "address_name" , "role": "street"}  [55](house_number) [33 шахта]{"entity": "address_name" , "role": "org"}
+    - [карбышева]{"entity": "address_name" , "role": "street"}  [22](house_number) в [таир]{"entity": "address_name" , "role": "org"}
+    - [казахстанская]{"entity": "address_name" , "role": "street"}  [1](house_number) [шахтер]{"entity": "address_name" , "role": "org"}
+    - [муканова]{"entity": "address_name" , "role": "street"}  [61](house_number) [база]{"entity": "address_name" , "role": "org"}
+    - [архитектурная]{"entity": "address_name" , "role": "street"}  [8](house_number) да [зак]{"entity": "address_name" , "role": "org"}
+    - [строительный]{"entity": "address_name" , "role": "street"}  [4](house_number) [казактелеком]{"entity": "address_name" , "role": "org"}
+    - здравствуйте на [12]{"entity": "address_name" , "role": "street"}  мне [магазин]{"entity": "address_name" , "role": "org"}
+    - здравствуйте этот [19]{"entity": "address_name" , "role": "street"}  на [почте]{"entity": "address_name" , "role": "org"}
+    - на [26 квартал]{"entity": "address_name" , "role": "street"}  [архив]{"entity": "address_name" , "role": "org"}
+    - поедем на [горняк]{"entity": "address_name" , "role": "street"}  [гимназия]{"entity": "address_name" , "role": "org"}
+    - в [районе 22]{"entity": "address_name" , "role": "street"}  [шахты]{"entity": "address_name" , "role": "org"}
+    - здравствуйте [кунгей]{"entity": "address_name" , "role": "street"}  [ресторан]{"entity": "address_name" , "role": "org"}
+    - [восток 5]{"entity": "address_name" , "role": "street"}  в [школу]{"entity": "address_name" , "role": "org"}
+    - можно машину [пруды]{"entity": "address_name" , "role": "street"}  [больница]{"entity": "address_name" , "role": "org"}
+    - [45 квартал]{"entity": "address_name" , "role": "street"}  [детская больница]{"entity": "address_name" , "role": "org"}
+    - да только с [12]{"entity": "address_name" , "role": "street"}  в [аэропорт]{"entity": "address_name" , "role": "org"}
+    - [18]{"entity": "address_name" , "role": "street"}  [стоматология]{"entity": "address_name" , "role": "org"}
+    - [18]{"entity": "address_name" , "role": "street"}  [стоматология]{"entity": "address_name" , "role": "org"}
+    - здравствуйте [18]{"entity": "address_name" , "role": "street"}  где [стоматология]{"entity": "address_name" , "role": "org"}
+    - здравствуйте [восток 5]{"entity": "address_name" , "role": "street"}  [торговый дом]{"entity": "address_name" , "role": "org"}
+    - [восток 5]{"entity": "address_name" , "role": "street"}  [церковь]{"entity": "address_name" , "role": "org"}
+    - с [кунгей]{"entity": "address_name" , "role": "street"}  этот [клиника]{"entity": "address_name" , "role": "org"}
+    - здравствуйте [голубые пруды]{"entity": "address_name" , "role": "street"}  [школа]{"entity": "address_name" , "role": "org"}
+    - [19 микрорайон]{"entity": "address_name" , "role": "street"}  [почта]{"entity": "address_name" , "role": "org"}
+    - мы в [23]{"entity": "address_name" , "role": "street"}  на [рынке]{"entity": "address_name" , "role": "org"}
+    - в [16]{"entity": "address_name" , "role": "street"}  где [общага]{"entity": "address_name" , "role": "org"}
+    - поедем на [11 квартал]{"entity": "address_name" , "role": "street"}  [автосервис]{"entity": "address_name" , "role": "org"}
+    - в [кунгей]{"entity": "address_name" , "role": "street"}  [баню]{"entity": "address_name" , "role": "org"}
+    - здравствуйте девушка можно машину в [17 микрорайон]{"entity": "address_name" , "role": "street"}  [баня]{"entity": "address_name" , "role": "org"}
+    - [15 мкр]{"entity": "address_name" , "role": "street"}  [библиотека]{"entity": "address_name" , "role": "org"}
+    - поеду в [23]{"entity": "address_name" , "role": "street"}  [тату салон]{"entity": "address_name" , "role": "org"}
+    - девушка здравствуйте [михайловский]{"entity": "address_name" , "role": "street"}  [роддом]{"entity": "address_name" , "role": "org"}
+    - на [11 квартал]{"entity": "address_name" , "role": "street"}  [школа]{"entity": "address_name" , "role": "org"}  [гимнастики]{"entity": "address_name" , "role": "org"}
+    - здравствуйте можно пожалуйста [орбита 1]{"entity": "address_name" , "role": "street"}  [автомойка]{"entity": "address_name" , "role": "org"}
+    - [шахтерская]{"entity": "address_name" , "role": "street"}  [больница]{"entity": "address_name" , "role": "org"}
+    - [восток 3]{"entity": "address_name" , "role": "street"}  [садик]{"entity": "address_name" , "role": "org"}
+    - [11 а микрорайон]{"entity": "address_name" , "role": "street"}  [больница]{"entity": "address_name" , "role": "org"}
+    - здравствуйте [19 микрорайон]{"entity": "address_name" , "role": "street"}  [почта]{"entity": "address_name" , "role": "org"}
+    - с [16]{"entity": "address_name" , "role": "street"}  до [тбц]{"entity": "address_name" , "role": "org"}
+    - на [степной 1]{"entity": "address_name" , "role": "street"}  [почта]{"entity": "address_name" , "role": "org"}
+    - здравствуйте [18 микрорайон]{"entity": "address_name" , "role": "street"}  [мотоклуб]{"entity": "address_name" , "role": "org"}
+    - [поликлиника №4]{"entity": "address_name" , "role": "org"}  на [голубых прудах]{"entity": "address_name" , "role": "street"}
+    - [поликлиника 11]{"entity": "address_name" , "role": "org"}  [11а]{"entity": "address_name" , "role": "street"}
+    - здравствуйте [аян]{"entity": "address_name" , "role": "org"}  на [12 мкрн]{"entity": "address_name" , "role": "street"}
+    - [южный]{"entity": "address_name" , "role": "org"}  на [17]{"entity": "address_name" , "role": "street"}  ом
+    - сейчас я в [казахтелеком]{"entity": "address_name" , "role": "org"}  вот на [19 ом]{"entity": "address_name" , "role": "street"}
+    - здравствуйте [светофор]{"entity": "address_name" , "role": "org"}  на [18ом]{"entity": "address_name" , "role": "street"}
+    - [реал]{"entity": "address_name" , "role": "org"}  [17ый]{"entity": "address_name" , "role": "street"}
+    - здравствуйте [аян]{"entity": "address_name" , "role": "org"}  на [12]{"entity": "address_name" , "role": "street"}
+    - здравствуйте можно на [мини]{"entity": "address_name" , "role": "org"}  [горняк]{"entity": "address_name" , "role": "street"}
+    - добрый вечер [65 школа]{"entity": "address_name" , "role": "org"}  [14 микрорайон]{"entity": "address_name" , "role": "street"}
+    - [воинская часть 54]{"entity": "address_name" , "role": "org"}  [114 мкрн]{"entity": "address_name" , "role": "street"}
+    - да да [народный банк]{"entity": "address_name" , "role": "org"}  это [восток 2]{"entity": "address_name" , "role": "street"}
+    - [4 поликлиника]{"entity": "address_name" , "role": "org"}  [пруды]{"entity": "address_name" , "role": "street"}
+    - на [9 гимназию]{"entity": "address_name" , "role": "org"}  [12 микрорайон]{"entity": "address_name" , "role": "street"}
+    - на [южный]{"entity": "address_name" , "role": "org"}  [17 микрорайон]{"entity": "address_name" , "role": "street"}
+    - здравствуйте девушка это [школа номер 17]{"entity": "address_name" , "role": "org"}  на [востоке 2]{"entity": "address_name" , "role": "street"}
+    - в [клинику №4]{"entity": "address_name" , "role": "org"}  на [голубых прудах]{"entity": "address_name" , "role": "street"}
+    - это [южный]{"entity": "address_name" , "role": "org"}  на [17]{"entity": "address_name" , "role": "street"}
+    - алло здравствуйте [светофор]{"entity": "address_name" , "role": "org"}  на [18ом]{"entity": "address_name" , "role": "street"}
+    - [достан]{"entity": "address_name" , "role": "org"}  [16 микрорайон]{"entity": "address_name" , "role": "street"}
+    - [аэрофит]{"entity": "address_name" , "role": "org"}  [восток 2]{"entity": "address_name" , "role": "street"}
+    - здравствуйте [аэрофит]{"entity": "address_name" , "role": "org"}  [восток 2]{"entity": "address_name" , "role": "street"}
+    - на [аян]{"entity": "address_name" , "role": "org"}  [13]{"entity": "address_name" , "role": "street"}
+    - [войнская часть 54 51]{"entity": "address_name" , "role": "org"}  за [14 микрорайоном]{"entity": "address_name" , "role": "street"}
+    - на [карагоз]{"entity": "address_name" , "role": "org"}  можно едим на [13]{"entity": "address_name" , "role": "street"}
+    - [дарынды бала]{"entity": "address_name" , "role": "org"}  на [19м]{"entity": "address_name" , "role": "street"}
+    - в [симур]{"entity": "address_name" , "role": "org"}  на [22]{"entity": "address_name" , "role": "street"}
+    - на [заир]{"entity": "address_name" , "role": "org"}  в [11а]{"entity": "address_name" , "role": "street"}
+    - [16 поликлиника]{"entity": "address_name" , "role": "org"}  [пруды]{"entity": "address_name" , "role": "street"}
+    - [поликлиника №4]{"entity": "address_name" , "role": "org"}  [голубые пруды]{"entity": "address_name" , "role": "street"}
+    - [ступени]{"entity": "address_name" , "role": "org"}  [восток 3]{"entity": "address_name" , "role": "street"}
+    - на [4ю поликлинику]{"entity": "address_name" , "role": "org"}  на [голубых прудах]{"entity": "address_name" , "role": "street"}
+    - [каспи банк]{"entity": "address_name" , "role": "org"}  [12 мкр]{"entity": "address_name" , "role": "street"}
+    - в [аян]{"entity": "address_name" , "role": "org"}  на [12]{"entity": "address_name" , "role": "street"}
+    - добрый день [больница 4]{"entity": "address_name" , "role": "org"}  на [голубых прудах]{"entity": "address_name" , "role": "street"}
+    - здравствуйте [южный]{"entity": "address_name" , "role": "org"}  [17]{"entity": "address_name" , "role": "street"}
+    - ага так на [азию]{"entity": "address_name" , "role": "org"}  в [15]{"entity": "address_name" , "role": "street"}
+    - здравствуйте я на [южном]{"entity": "address_name" , "role": "org"}  [17]{"entity": "address_name" , "role": "street"}
+    - добрый а можно как его там [школа №8]{"entity": "address_name" , "role": "org"}  на [востоке]{"entity": "address_name" , "role": "street"}
+    - [гарант]{"entity": "address_name" , "role": "org"}  да на [19]{"entity": "address_name" , "role": "street"}
+    - девушка будьте добры на [южный]{"entity": "address_name" , "role": "org"}  в [17]{"entity": "address_name" , "role": "street"}
+    - [реал]{"entity": "address_name" , "role": "org"}  [18 мкр]{"entity": "address_name" , "role": "street"}
+    - в [ануар]{"entity": "address_name" , "role": "org"}  на [восток 2]{"entity": "address_name" , "role": "street"}
+    - [южный]{"entity": "address_name" , "role": "org"}  в [17м]{"entity": "address_name" , "role": "street"}
+    - мы на [реале]{"entity": "address_name" , "role": "org"}  в [18м]{"entity": "address_name" , "role": "street"}
+    - здравствуйте [курочка ряба]{"entity": "address_name" , "role": "org"}  на [прудах]{"entity": "address_name" , "role": "street"}
+    - на [стимул]{"entity": "address_name" , "role": "org"}  [19]{"entity": "address_name" , "role": "street"}
+    - с [фелиды]{"entity": "address_name" , "role": "org"}  [18 микрорайона]{"entity": "address_name" , "role": "street"}
+    - так [4 поликлиника]{"entity": "address_name" , "role": "org"}  [пруды]{"entity": "address_name" , "role": "street"}  поедем
+    - [30 школа]{"entity": "address_name" , "role": "org"}  [район новостройки]{"entity": "address_name" , "role": "street"}
+    - здравствуйте [искра]{"entity": "address_name" , "role": "org"}  [12]{"entity": "address_name" , "role": "street"}
+    - здравствуйте такси можно со [стройпластмасса]{"entity": "address_name" , "role": "org"}  на [восток 2]{"entity": "address_name" , "role": "street"}  поедем
+    - [86 школа]{"entity": "address_name" , "role": "org"}  на [орбите]{"entity": "address_name" , "role": "street"}
+    - [народный банк]{"entity": "address_name" , "role": "org"}  на [востоке 2]{"entity": "address_name" , "role": "street"}
+    - здравствуйте мне машину на [каз почту]{"entity": "address_name" , "role": "org"}  на [восток 1]{"entity": "address_name" , "role": "street"}
+    - ага поедем мы на [форпост]{"entity": "address_name" , "role": "org"}  на [орбиту]{"entity": "address_name" , "role": "street"}
+    - здравствуйте на [реале]{"entity": "address_name" , "role": "org"}  на [17]{"entity": "address_name" , "role": "street"}
+    - [25 школа]{"entity": "address_name" , "role": "org"}  [23 микрорайон]{"entity": "address_name" , "role": "street"}
+    - [каз почта]{"entity": "address_name" , "role": "org"}  в [17 микрорайоне]{"entity": "address_name" , "role": "street"}
+    - [светофор]{"entity": "address_name" , "role": "org"}  ой [13]{"entity": "address_name" , "role": "street"}
+    - [абиба]{"entity": "address_name" , "role": "org"}  [13]{"entity": "address_name" , "role": "street"}  да
+    - [школа 54]{"entity": "address_name" , "role": "org"}  [13 микрорайон]{"entity": "address_name" , "role": "street"}
+    - здравствуйте [золотой родник]{"entity": "address_name" , "role": "org"}  на [востоке 3]{"entity": "address_name" , "role": "street"}
+    - да да [гимназия]{"entity": "address_name" , "role": "org"} на [восток 5]{"entity": "address_name" , "role": "street"}
+    - [воинский часть]{"entity": "address_name" , "role": "org"} на [14]{"entity": "address_name" , "role": "street"}
+    - алло [баня]{"entity": "address_name" , "role": "org"} на [17]{"entity": "address_name" , "role": "street"}
+    - [воинская часть]{"entity": "address_name" , "role": "org"} за [14м]{"entity": "address_name" , "role": "street"}
+    - алло здравствуйте можно такси на [стоматологию]{"entity": "address_name" , "role": "org"} на [19м]{"entity": "address_name" , "role": "street"}
+    - здравствуйте [старая пожарка]{"entity": "address_name" , "role": "org"} за [14]{"entity": "address_name" , "role": "street"}
+    - ало здравствуйте [баня]{"entity": "address_name" , "role": "org"} на [17]{"entity": "address_name" , "role": "street"}
+    - дадада [воинская часть]{"entity": "address_name" , "role": "org"} за [14]{"entity": "address_name" , "role": "street"}
+    - [баня]{"entity": "address_name" , "role": "org"} на [17]{"entity": "address_name" , "role": "street"}
+    - до на [кафе]{"entity": "address_name" , "role": "org"} на [19]{"entity": "address_name" , "role": "street"}
+    - здравствуйте можно машину на [стоматологию]{"entity": "address_name" , "role": "org"} в [18]{"entity": "address_name" , "role": "street"}
+    - [сейфуллина]{"entity": "address_name" , "role": "street"}  [105](house_number) на [склад]{"entity": "address_name" , "role": "org"}
+    - [магнитогорская]{"entity": "address_name" , "role": "street"}  [32](house_number) на [военкомате]{"entity": "address_name" , "role": "org"}
+    - [ынтымак]{"entity": "address_name" , "role": "street"}  [24](house_number) [детский садик]{"entity": "address_name" , "role": "org"}
+    - [бабушкино]{"entity": "address_name" , "role": "street"}  [59](house_number) [автомагазин]{"entity": "address_name" , "role": "org"}
+    - [щорса]{"entity": "address_name" , "role": "street"}  [59](house_number) [роддом]{"entity": "address_name" , "role": "org"}
+    - машину можно это [лихачева]{"entity": "address_name" , "role": "street"}  [2](house_number) на [пожарный часть]{"entity": "address_name" , "role": "org"}
+    - алло здравствуйте [каретная]{"entity": "address_name" , "role": "street"}  [40](house_number) до [жд возкала]{"entity": "address_name" , "role": "org"}
+    - [муканова]{"entity": "address_name" , "role": "street"}  [45](house_number) [автопарк]{"entity": "address_name" , "role": "org"}
+    - [архитектурная]{"entity": "address_name" , "role": "street"}  [42](house_number) [садик]{"entity": "address_name" , "role": "org"}
+    - [чапаева]{"entity": "address_name" , "role": "street"}  [103](house_number) на [воинскую часть]{"entity": "address_name" , "role": "org"}
+    - [ержанова]{"entity": "address_name" , "role": "street"}  [8](house_number) [детская больница]{"entity": "address_name" , "role": "org"}
+    - ало здравствуйте [архитектурная]{"entity": "address_name" , "role": "street"}  [42](house_number) [садик]{"entity": "address_name" , "role": "org"}
+    - [затаевича]{"entity": "address_name" , "role": "street"}  [77 а](house_number) [рынок]{"entity": "address_name" , "role": "org"}
+    - [коммунистическая]{"entity": "address_name" , "role": "street"}  [94](house_number) [баня]{"entity": "address_name" , "role": "org"}
+    - здравствуйте [коммунистическая]{"entity": "address_name" , "role": "street"}  [94](house_number) [бани]{"entity": "address_name" , "role": "org"}
+    - [бытовая]{"entity": "address_name" , "role": "street"}  [26](house_number) [автопарк]{"entity": "address_name" , "role": "org"}
+    - [белинского]{"entity": "address_name" , "role": "street"}  [5](house_number) с [магазина]{"entity": "address_name" , "role": "org"}
+    - так [абая]{"entity": "address_name" , "role": "street"}  [81](house_number) [клиника]{"entity": "address_name" , "role": "org"}
+    - на [алиханова]{"entity": "address_name" , "role": "street"}  [37](house_number) [фотостудия]{"entity": "address_name" , "role": "org"}  там
+    - здравствуйте [пристанционная]{"entity": "address_name" , "role": "street"}  [64](house_number) [баня]{"entity": "address_name" , "role": "org"}
+    - здравствуйте [архитектурная]{"entity": "address_name" , "role": "street"}  [42](house_number) [садик]{"entity": "address_name" , "role": "org"}
+    - здравствуйте [ерубаева]{"entity": "address_name" , "role": "street"}  [24](house_number) [салон красоты]{"entity": "address_name" , "role": "org"}
+    - здравствуйте [бирюзова]{"entity": "address_name" , "role": "street"}  [37](house_number) [магазин продуктов]{"entity": "address_name" , "role": "org"}
+    - [гудермесская]{"entity": "address_name" , "role": "street"}  [100](house_number) [автомойка]{"entity": "address_name" , "role": "org"}
+    - [щорса]{"entity": "address_name" , "role": "street"}  [21](house_number) в [баню]{"entity": "address_name" , "role": "org"}
+    - алло здравствуйте [бирюзова]{"entity": "address_name" , "role": "street"}  [22а](house_number) [ритуальные услуги]{"entity": "address_name" , "role": "org"}
+    - [щорса]{"entity": "address_name" , "role": "street"}  [21](house_number) [общественная баня]{"entity": "address_name" , "role": "org"}
+    - [пристанционная]{"entity": "address_name" , "role": "street"}  [54](house_number) [баня]{"entity": "address_name" , "role": "org"}
+    - здравствуйте [ержанова]{"entity": "address_name" , "role": "street"}  [18](house_number) [бизнесцентр]{"entity": "address_name" , "role": "org"}
+    - [магнитогорская]{"entity": "address_name" , "role": "street"}  [12](house_number) [стоматология]{"entity": "address_name" , "role": "org"}
+    - [щорса]{"entity": "address_name" , "role": "street"}  [59](house_number) [магазин]{"entity": "address_name" , "role": "org"}
+    - здравствуйте [абая]{"entity": "address_name" , "role": "street"}  [2](house_number) [бизнес центр]{"entity": "address_name" , "role": "org"}
+    - [бирюзова]{"entity": "address_name" , "role": "street"}  [37](house_number) [магазин продуктов]{"entity": "address_name" , "role": "org"}
+    - здравствуйте [гоголя]{"entity": "address_name" , "role": "street"}  [29](house_number) [автомойка]{"entity": "address_name" , "role": "org"}
+    - [магнитогорская]{"entity": "address_name" , "role": "street"}  [43](house_number) [школа]{"entity": "address_name" , "role": "org"}
+    - [таттимбета]{"entity": "address_name" , "role": "street"}  [18](house_number) поеду на [стадион]{"entity": "address_name" , "role": "org"}
+    - [ынтымак]{"entity": "address_name" , "role": "street"}  [24](house_number) [садик]{"entity": "address_name" , "role": "org"}
+    - [пригородная]{"entity": "address_name" , "role": "street"}  [1](house_number) [скорая помощь]{"entity": "address_name" , "role": "org"}
+    - [назарбаева]{"entity": "address_name" , "role": "street"}  [37](house_number) [образовательный центр]{"entity": "address_name" , "role": "org"}
+    - [муканова]{"entity": "address_name" , "role": "street"}  [26](house_number) [стоматология]{"entity": "address_name" , "role": "org"}
+    - [энгельса]{"entity": "address_name" , "role": "street"}  [40](house_number) [детский сад]{"entity": "address_name" , "role": "org"}
+    - [бирюзова]{"entity": "address_name" , "role": "street"}  [22](house_number) это [больница]{"entity": "address_name" , "role": "org"}
+    - [волочаевская]{"entity": "address_name" , "role": "street"}  [1](house_number) [авто разбор]{"entity": "address_name" , "role": "org"}
+    - [кузембаева]{"entity": "address_name" , "role": "street"}  [79](house_number) [цветочный магазин]{"entity": "address_name" , "role": "org"}
+    - [ерубаева]{"entity": "address_name" , "role": "street"}  [37](house_number) [департамент полиции]{"entity": "address_name" , "role": "org"}
+    - здравствуйте этот на [муканова]{"entity": "address_name" , "role": "street"}  [5](house_number) [диагностика]{"entity": "address_name" , "role": "org"}
+    - поедем [степной1]{"entity": "address_name" , "role": "street"}  [клиника нурболат]{"entity": "address_name" , "role": "org"}
+    - здравствуйте [восток3]{"entity": "address_name" , "role": "street"}  [ресторан миллион]{"entity": "address_name" , "role": "org"}
+    - добрый вечер [восток 1]{"entity": "address_name" , "role": "street"}  [садик растем вместе]{"entity": "address_name" , "role": "org"}
+    - [12 микрорайон]{"entity": "address_name" , "role": "street"}  [супермаркет сымбат]{"entity": "address_name" , "role": "org"}
+    - на [2 квартала]{"entity": "address_name" , "role": "street"}  [стоматология меруерт]{"entity": "address_name" , "role": "org"}
+    - [15 микрорайон]{"entity": "address_name" , "role": "street"}  [магазин сатурн]{"entity": "address_name" , "role": "org"}
+    - на [восток 2]{"entity": "address_name" , "role": "street"}  [садик джин]{"entity": "address_name" , "role": "org"}
+    - на [17]{"entity": "address_name" , "role": "street"}  [садик балапан]{"entity": "address_name" , "role": "org"}
+    - на [восток 2]{"entity": "address_name" , "role": "street"}  [детский садик джин]{"entity": "address_name" , "role": "org"}
+    - аа [голубые пруды]{"entity": "address_name" , "role": "street"}  [детский сад толагай]{"entity": "address_name" , "role": "org"}
+    - здравствуйте можно пожалуйста машину [14 микрорайон]{"entity": "address_name" , "role": "street"}  [магазин волна]{"entity": "address_name" , "role": "org"}
+    - здравствуйте мне бы машину [восток 1]{"entity": "address_name" , "role": "street"}  [кафе огонёк]{"entity": "address_name" , "role": "org"}
+    - [17 мкр]{"entity": "address_name" , "role": "street"}  [магазин детский мир]{"entity": "address_name" , "role": "org"}
+    - алло девушка здравствуйте можно это на [прудах]{"entity": "address_name" , "role": "street"}  [кафе заман]{"entity": "address_name" , "role": "org"}  такси
+    - здравствуйте в [13 микрорайоне]{"entity": "address_name" , "role": "street"}  [магазин айсберг]{"entity": "address_name" , "role": "org"}
+    - на [восток 3]{"entity": "address_name" , "role": "street"}  [детский садик ступень]{"entity": "address_name" , "role": "org"}
+    - добрый вечер мы на [востоке 5]{"entity": "address_name" , "role": "street"}  [мини маркет тис]{"entity": "address_name" , "role": "org"}
+    - [12]{"entity": "address_name" , "role": "street"}  [садик арман]{"entity": "address_name" , "role": "org"}
+    - на [восток 3]{"entity": "address_name" , "role": "street"}  [садик ступени]{"entity": "address_name" , "role": "org"}
+    - здравствуйте [11 а]{"entity": "address_name" , "role": "street"}  [магазин заир]{"entity": "address_name" , "role": "org"}
+    - [восток 1]{"entity": "address_name" , "role": "street"}  [кулинария огонек]{"entity": "address_name" , "role": "org"}
+    - здравствуйте я на [востоке 1]{"entity": "address_name" , "role": "street"}  [кулинария огонек]{"entity": "address_name" , "role": "org"}
+    - [18 микрорайон]{"entity": "address_name" , "role": "street"}  [магазин феллида]{"entity": "address_name" , "role": "org"}
+    - здравствуйте [18 микрорайон]{"entity": "address_name" , "role": "street"}  [магазин светофор]{"entity": "address_name" , "role": "org"}
+    - так в [12]{"entity": "address_name" , "role": "street"}  [торговый дом аян]{"entity": "address_name" , "role": "org"}
+    - [15 микрорайон]{"entity": "address_name" , "role": "street"}  [азс вито марс]{"entity": "address_name" , "role": "org"}
+    - [29]{"entity": "address_name" , "role": "street"}  [клиника нурболат]{"entity": "address_name" , "role": "org"}
+    - в [16]{"entity": "address_name" , "role": "street"}  на [ресторан альтаир]{"entity": "address_name" , "role": "org"}
+    - здравствуйте [17 микрорайон]{"entity": "address_name" , "role": "street"}  [магазин волна]{"entity": "address_name" , "role": "org"}
+    - здравствуйте девушка [17 микрорайон]{"entity": "address_name" , "role": "street"}  [ресторан авива]{"entity": "address_name" , "role": "org"}
+    - здравствуйте [12 мкр]{"entity": "address_name" , "role": "street"}  [магазин альба]{"entity": "address_name" , "role": "org"}
+    - [17 мкр]{"entity": "address_name" , "role": "street"}  [магазин мебели омега]{"entity": "address_name" , "role": "org"}
+    - [13 мкр]{"entity": "address_name" , "role": "street"}  [магазин аян]{"entity": "address_name" , "role": "org"}
+    - алло девушка можно [19 мкрн]{"entity": "address_name" , "role": "street"}  [кафе стимул]{"entity": "address_name" , "role": "org"}
+    - [восток 3]{"entity": "address_name" , "role": "street"}  [баня золотой родник]{"entity": "address_name" , "role": "org"}
+    - [19 микрорайон]{"entity": "address_name" , "role": "street"}  [кафе стимул]{"entity": "address_name" , "role": "org"}
+    - здравствуйте [17]{"entity": "address_name" , "role": "street"}  [магазин волна]{"entity": "address_name" , "role": "org"}
+    - алло здравствуйте [2 квартал]{"entity": "address_name" , "role": "street"}  с [сервиса арал]{"entity": "address_name" , "role": "org"}  можно
+    - здравствуйте я [12 микрорайон]{"entity": "address_name" , "role": "street"}  здесь [банк каспийский]{"entity": "address_name" , "role": "org"}
+    - [17 микрорайон]{"entity": "address_name" , "role": "street"}  [магазин южный]{"entity": "address_name" , "role": "org"}
+    - [17 микрорайон]{"entity": "address_name" , "role": "street"}  [магазин реаль]{"entity": "address_name" , "role": "org"}  же есть
+    - так [16 микрорайон]{"entity": "address_name" , "role": "street"}  [автомойка достан]{"entity": "address_name" , "role": "org"}
+    - [17 микрорайон]{"entity": "address_name" , "role": "street"}  [торговый дом реал]{"entity": "address_name" , "role": "org"}
+    - здравствуйте [17 микрорайон]{"entity": "address_name" , "role": "street"}  [супермаркет южный]{"entity": "address_name" , "role": "org"}
+    - [13 микрорайон]{"entity": "address_name" , "role": "street"}  [магазин хазар]{"entity": "address_name" , "role": "org"}
+    - алло здравствуйте [восток 2]{"entity": "address_name" , "role": "street"}  [фитнес клуб аэрофит]{"entity": "address_name" , "role": "org"}
+    - [16 микрорайон]{"entity": "address_name" , "role": "street"}  [ресторан акбере]{"entity": "address_name" , "role": "org"}
+    - [18 микрорайон]{"entity": "address_name" , "role": "street"}  [магазин светофор]{"entity": "address_name" , "role": "org"}
+    - на [18 микрорайон]{"entity": "address_name" , "role": "street"}  [магазин пинта]{"entity": "address_name" , "role": "org"}
+    - [орбита]{"entity": "address_name" , "role": "street"}  [магазин юма]{"entity": "address_name" , "role": "org"}
+    - здравствуйте [голубые пруды]{"entity": "address_name" , "role": "street"}  [гостиница албота]{"entity": "address_name" , "role": "org"}
+    - здравствуйте можно пожалуйста машину [19 микрорайон]{"entity": "address_name" , "role": "street"}  [сауна стимул]{"entity": "address_name" , "role": "org"}
+    - здравствуйте [17]{"entity": "address_name" , "role": "street"}  [магазин реал]{"entity": "address_name" , "role": "org"}
+    - здравствуйте [18 микрорайон]{"entity": "address_name" , "role": "street"}  [кафе камелота]{"entity": "address_name" , "role": "org"}
+    - [17 микрорайон]{"entity": "address_name" , "role": "street"}  [садик балапан]{"entity": "address_name" , "role": "org"}
+    - на [19]{"entity": "address_name" , "role": "street"}  [школу 52]{"entity": "address_name" , "role": "org"}
+    - на [восток 3]{"entity": "address_name" , "role": "street"}  это [садик молдер]{"entity": "address_name" , "role": "org"}
+    - поедем на [учетный квартал 104]{"entity": "address_name" , "role": "street"}  [заправка синойл]{"entity": "address_name" , "role": "org"}
+    - [11 квартал]{"entity": "address_name" , "role": "street"}  [магазин айна]{"entity": "address_name" , "role": "org"}
+    - так [19]{"entity": "address_name" , "role": "street"}  [магазин гарант]{"entity": "address_name" , "role": "org"}
+    - [11 квартал]{"entity": "address_name" , "role": "street"}  [клиника ависта]{"entity": "address_name" , "role": "org"}
+    - здравствуйте [восток 3]{"entity": "address_name" , "role": "street"}  [детский сад ступени]{"entity": "address_name" , "role": "org"}
+    - [17 микрорайон]{"entity": "address_name" , "role": "street"}  [супермаркет южный]{"entity": "address_name" , "role": "org"}
+    - здравствуйте на [прудах]{"entity": "address_name" , "role": "street"}  [магазин инсар]{"entity": "address_name" , "role": "org"}
+    - на [восток 2]{"entity": "address_name" , "role": "street"}  [детский садик молдир]{"entity": "address_name" , "role": "org"}
+    - в [23]{"entity": "address_name" , "role": "street"}  [садик армашка]{"entity": "address_name" , "role": "org"}
+    - [23 микрорайон]{"entity": "address_name" , "role": "street"}  [супермаркет ежик]{"entity": "address_name" , "role": "org"}
+    - на [голубые пруды]{"entity": "address_name" , "role": "street"}  [магазин айгерим]{"entity": "address_name" , "role": "org"}
+    - [голубые пруды]{"entity": "address_name" , "role": "street"}  [торговый дом айгерим]{"entity": "address_name" , "role": "org"}
+    - а поедем на [восток 3]{"entity": "address_name" , "role": "street"}  [садик ступени]{"entity": "address_name" , "role": "org"}
+    - здравствуйте такси нам [18 микрорайон]{"entity": "address_name" , "role": "street"}  [магазин светофор]{"entity": "address_name" , "role": "org"}
+    - поеду в [17 микрорайон]{"entity": "address_name" , "role": "street"}  [магазин реал]{"entity": "address_name" , "role": "org"}
+    - поедем на [18]{"entity": "address_name" , "role": "street"}  [магазин пинта]{"entity": "address_name" , "role": "org"}
+    - здравствуйте мне [12 микрорайон]{"entity": "address_name" , "role": "street"}  [садик арман]{"entity": "address_name" , "role": "org"}
+    - ало [восток 2]{"entity": "address_name" , "role": "street"}  [садик джин]{"entity": "address_name" , "role": "org"}
+    - с [востока 2]{"entity": "address_name" , "role": "street"}  [рынок кайрат]{"entity": "address_name" , "role": "org"}
+    - на [востоке 1]{"entity": "address_name" , "role": "street"}  [кафе огонек]{"entity": "address_name" , "role": "org"}
+    - здравствуйте [голубые пруды]{"entity": "address_name" , "role": "street"}  [торговый дом сырдария]{"entity": "address_name" , "role": "org"}
+    - [учетный квартал 33]{"entity": "address_name" , "role": "street"}  [гостиница дересын]{"entity": "address_name" , "role": "org"}
+    - здравствуйте [ресторан абиба]{"entity": "address_name" , "role": "org"}  же есть на [13ом]{"entity": "address_name" , "role": "street"}
+    - здравствуйте можно машину на [торговый до реал]{"entity": "address_name" , "role": "org"}  [17]{"entity": "address_name" , "role": "street"}
+    - [баня три 9]{"entity": "address_name" , "role": "org"}  на [1 квартал]{"entity": "address_name" , "role": "street"}
+    - [садик балапан]{"entity": "address_name" , "role": "org"}  на [17]{"entity": "address_name" , "role": "street"}
+    - доброе утро [садик молдир]{"entity": "address_name" , "role": "org"}  на [восток 3]{"entity": "address_name" , "role": "street"}  можно
+    - [автосервис фарт]{"entity": "address_name" , "role": "org"}  на [11 – ом]{"entity": "address_name" , "role": "street"}
+    - [садик балапан]{"entity": "address_name" , "role": "org"}  на [17м]{"entity": "address_name" , "role": "street"}
+    - [детский сад баубобек]{"entity": "address_name" , "role": "org"}  [13 мкр]{"entity": "address_name" , "role": "street"}
+    - здравствуйте [супермаркет аян]{"entity": "address_name" , "role": "org"}  на [12м]{"entity": "address_name" , "role": "street"}
+    - здравствуйте [торговый дом айгерим]{"entity": "address_name" , "role": "org"}  на [прудах]{"entity": "address_name" , "role": "street"}
+    - с [магазина алуа]{"entity": "address_name" , "role": "org"}  на [15]{"entity": "address_name" , "role": "street"}
+    - здравствуйте можно машину [торговый дом ануар]{"entity": "address_name" , "role": "org"}  на [востоке 2]{"entity": "address_name" , "role": "street"}
+    - здравствуйте [магазин магнит]{"entity": "address_name" , "role": "org"}  [23]{"entity": "address_name" , "role": "street"}
+    - здравствуйте [супермаркет ежик]{"entity": "address_name" , "role": "org"}  на [23м микрорайоне]{"entity": "address_name" , "role": "street"}
+    - [магазин гарант]{"entity": "address_name" , "role": "org"}  на [19]{"entity": "address_name" , "role": "street"}
+    - [ресторан заман]{"entity": "address_name" , "role": "org"}  на [прудах]{"entity": "address_name" , "role": "street"}
+    - [торговый дом реаль]{"entity": "address_name" , "role": "org"}  [17 микрорайон]{"entity": "address_name" , "role": "street"}
+    - [заправка омега]{"entity": "address_name" , "role": "org"}  на [11 квартале]{"entity": "address_name" , "role": "street"}
+    - поеду на [магазин южный]{"entity": "address_name" , "role": "org"}  [17 микрорайон]{"entity": "address_name" , "role": "street"}
+    - [сауна стимул]{"entity": "address_name" , "role": "org"}  на [19]{"entity": "address_name" , "role": "street"}
+    - здравствуйте [торговый дом аян]{"entity": "address_name" , "role": "org"}  на [12]{"entity": "address_name" , "role": "street"}
+    - это [автокомплекс рикз]{"entity": "address_name" , "role": "org"}  на [15го микрорайона]{"entity": "address_name" , "role": "street"}
+    - здравствуйте [кафе камелот]{"entity": "address_name" , "role": "org"}  в [15 микрорайон]{"entity": "address_name" , "role": "street"}
+    - [кафе стимул]{"entity": "address_name" , "role": "org"}  на [19]{"entity": "address_name" , "role": "street"}
+    - здравствуйте [кафе каракоз]{"entity": "address_name" , "role": "org"}  [восток 1]{"entity": "address_name" , "role": "street"}
+    - [садик ступени]{"entity": "address_name" , "role": "org"}  [восток 3]{"entity": "address_name" , "role": "street"}
+    - [ресторан абиба]{"entity": "address_name" , "role": "org"}  [13 микрорайон]{"entity": "address_name" , "role": "street"}
+    - здравствуйте можно такси [магазин гарант]{"entity": "address_name" , "role": "org"}  на [19]{"entity": "address_name" , "role": "street"}
+    - [клиника орхон]{"entity": "address_name" , "role": "org"}  на [степном]{"entity": "address_name" , "role": "street"}
+    - здравствуйте так [магазин раушан]{"entity": "address_name" , "role": "org"}  [14 микрорайон]{"entity": "address_name" , "role": "street"}
+    - здравствуйте [супермаркет реал]{"entity": "address_name" , "role": "org"}  на [17]{"entity": "address_name" , "role": "street"}
+    - здравствуйте [магазин айгерим]{"entity": "address_name" , "role": "org"}  на [прудах]{"entity": "address_name" , "role": "street"}
+    - там на [баня алые парус]{"entity": "address_name" , "role": "org"}  есть где [кунгей]{"entity": "address_name" , "role": "street"}
+    - [ресторан абиба]{"entity": "address_name" , "role": "org"}  это [13 микрорайон]{"entity": "address_name" , "role": "street"}  что ли
+    - здравствуйте [супермаркет ежик]{"entity": "address_name" , "role": "org"}  в [23]{"entity": "address_name" , "role": "street"}
+    - здравствуйте [садик джинн]{"entity": "address_name" , "role": "org"}  на [востоке 2]{"entity": "address_name" , "role": "street"}
+    - здравствуйте можно машину на [десткий садик дыранды бала]{"entity": "address_name" , "role": "org"}  на [19]{"entity": "address_name" , "role": "street"}
+    - [детский садик акбола]{"entity": "address_name" , "role": "org"}  на [15]{"entity": "address_name" , "role": "street"}
+    - [садик растем вместе]{"entity": "address_name" , "role": "org"}  на [востоке]{"entity": "address_name" , "role": "street"}
+    - здравствуйте [магазин аян]{"entity": "address_name" , "role": "org"}  на [13]{"entity": "address_name" , "role": "street"}
+    - [торговый дом реал]{"entity": "address_name" , "role": "org"}  [17 микрорайон]{"entity": "address_name" , "role": "street"}
+    - здравствуйте [магазин волна]{"entity": "address_name" , "role": "org"}  на [14 микрорайоне]{"entity": "address_name" , "role": "street"}
+    - здравствуйте такси на [15]{"entity": "address_name" , "role": "street"}  за [15 домом](house_number) [автостоянка]{"entity": "address_name" , "role": "org"}
+    - здравствуйте [восток 1]{"entity": "address_name" , "role": "street"}  [дом 5](house_number) [стоматология]{"entity": "address_name" , "role": "org"}
+    - здравствуйте этот [пруды]{"entity": "address_name" , "role": "street"}  [7](house_number) это [аптека]{"entity": "address_name" , "role": "org"}
+    - нет нет [восток 1]{"entity": "address_name" , "role": "street"}  [дом 3](house_number) [стоматология]{"entity": "address_name" , "role": "org"}
+    - [16]{"entity": "address_name" , "role": "street"}  [33](house_number) [магазин]{"entity": "address_name" , "role": "org"}
+    - здравствуйте [восток 3]{"entity": "address_name" , "role": "street"}  [дом 8](house_number) [аптека]{"entity": "address_name" , "role": "org"}
+    - на [восток 1]{"entity": "address_name" , "role": "street"}  [дом 5](house_number) [стоматология]{"entity": "address_name" , "role": "org"}
+    - здравствуйте девочки [15]{"entity": "address_name" , "role": "street"}  [7](house_number) [садик]{"entity": "address_name" , "role": "org"}
+    - здравствуйте [12]{"entity": "address_name" , "role": "street"}  [14 а](house_number) [автосервис]{"entity": "address_name" , "role": "org"}
+    - здравствуйте [13 микрорайон]{"entity": "address_name" , "role": "street"}  [дом 1](house_number) [стоматология]{"entity": "address_name" , "role": "org"}
+    - [22]{"entity": "address_name" , "role": "street"}  [дом 2](house_number) [аптека]{"entity": "address_name" , "role": "org"}
+    - [16]{"entity": "address_name" , "role": "street"}  [39 дом](house_number) [магазин]{"entity": "address_name" , "role": "org"}
+    - [16]{"entity": "address_name" , "role": "street"}  [33 дом](house_number) [магазин]{"entity": "address_name" , "role": "org"}
+    - здравствуйте на [восток 1]{"entity": "address_name" , "role": "street"}  [5 дом](house_number) [стоматология]{"entity": "address_name" , "role": "org"}
+    - здравствуйте [17]{"entity": "address_name" , "role": "street"}  [7 дом](house_number) поеду в [церковь]{"entity": "address_name" , "role": "org"}
+    - здравствуйте [восток 1]{"entity": "address_name" , "role": "street"}  [5 дом](house_number) [стоматология]{"entity": "address_name" , "role": "org"}
+    - на [12]{"entity": "address_name" , "role": "street"}  [дом 1](house_number) до [магазина]{"entity": "address_name" , "role": "org"}
+    - [гульдер 1]{"entity": "address_name" , "role": "street"}  [дом 15](house_number) [стоматология]{"entity": "address_name" , "role": "org"}
+    - [гульдер 1]{"entity": "address_name" , "role": "street"}  [дом 15](house_number) [магазин]{"entity": "address_name" , "role": "org"}
+    - [голубые пруды]{"entity": "address_name" , "role": "street"}  [дом 6](house_number) [стоматология]{"entity": "address_name" , "role": "org"}
+    - [восток 5]{"entity": "address_name" , "role": "street"}  [41 дом](house_number) [автостоянка]{"entity": "address_name" , "role": "org"}
+    - [17]{"entity": "address_name" , "role": "street"}  [50](house_number) там [магазин]{"entity": "address_name" , "role": "org"}
+    - здравствуйте [13]{"entity": "address_name" , "role": "street"}  [18](house_number) поедем [садик]{"entity": "address_name" , "role": "org"}
+    - здравствуйте [голубые пруды]{"entity": "address_name" , "role": "street"}  [дом 6](house_number) [стоматология]{"entity": "address_name" , "role": "org"}
+    - [17 микрорайоне]{"entity": "address_name" , "role": "street"}  [43 дом](house_number) [стоматология]{"entity": "address_name" , "role": "org"}
+    - здравствуйте можно такси [12]{"entity": "address_name" , "role": "street"}  [19](house_number) [магазин]{"entity": "address_name" , "role": "org"}
+    - [17 микрорайон]{"entity": "address_name" , "role": "street"}  [48 дом](house_number) [ломбард]{"entity": "address_name" , "role": "org"}
+    - здравствуйте [19]{"entity": "address_name" , "role": "street"}  [40](house_number) а [садик]{"entity": "address_name" , "role": "org"}
+    - [15 микрорайон]{"entity": "address_name" , "role": "street"}  [7 дом](house_number) [школа]{"entity": "address_name" , "role": "org"}
+    - [15]{"entity": "address_name" , "role": "street"}  [8](house_number) [садик]{"entity": "address_name" , "role": "org"}
+    - здравствуйте девушка такси можно с [15]{"entity": "address_name" , "role": "street"}  [8](house_number) [магазин]{"entity": "address_name" , "role": "org"}
+    - [роза люксембург]{"entity": "address_name" , "role": "street"}  [детский дом]{"entity": "address_name" , "role": "org"}
+    - на [бирюзова]{"entity": "address_name" , "role": "street"}  на [морг]{"entity": "address_name" , "role": "org"}
+    - [кузембаевская]{"entity": "address_name" , "role": "street"}  [шахта]{"entity": "address_name" , "role": "org"}
+    - здравствуйте [щорсе]{"entity": "address_name" , "role": "street"}  [баня]{"entity": "address_name" , "role": "org"}
+    - там где до на [белинского]{"entity": "address_name" , "role": "street"}  [ночной магазин]{"entity": "address_name" , "role": "org"}  есть
+    - поедем [бирюзова]{"entity": "address_name" , "role": "street"}  [ритуальные услуги]{"entity": "address_name" , "role": "org"}
+    - ну с [либкнехта]{"entity": "address_name" , "role": "street"}  или вот где вот этот [карьер]{"entity": "address_name" , "role": "org"}  как там
+    - здравствуйте [бирюзова]{"entity": "address_name" , "role": "street"}  [больница]{"entity": "address_name" , "role": "org"}
+    - [олимпийская]{"entity": "address_name" , "role": "street"}  [мед центр]{"entity": "address_name" , "role": "org"}
+    - здесь по [бирюзова]{"entity": "address_name" , "role": "street"}  [ритуальные услуги]{"entity": "address_name" , "role": "org"}
+    - на [щорса]{"entity": "address_name" , "role": "street"}  [роддом]{"entity": "address_name" , "role": "org"}
+    - поедем [рынок кайрат]{"entity": "address_name" , "role": "org"}  на [востоке2]{"entity": "address_name" , "role": "street"}
+    - [пожарная часть]{"entity": "address_name" , "role": "org"}  за [14м]{"entity": "address_name" , "role": "street"}
+    - поедем на [пожарку]{"entity": "address_name" , "role": "org"}  на короче на [11 квартал]{"entity": "address_name" , "role": "street"}
+    - здравствуйте [автостоянка]{"entity": "address_name" , "role": "org"} в [13 микрорайоне]{"entity": "address_name" , "role": "street"}
+    - здравствуйте мой дед хочет на [гаражи]{"entity": "address_name" , "role": "org"} поехать на [12]{"entity": "address_name" , "role": "street"}  там
+    - [магазин эми]{"entity": "address_name" , "role": "org"}  [восток 3]{"entity": "address_name" , "role": "street"}
+    - ладно ну едем мы к [суду]{"entity": "address_name" , "role": "org"}  где [архитектурная]{"entity": "address_name" , "role": "street"}  [34](house_number)
+    - здравствуйте я нахожусь [молокова]{"entity": "address_name" , "role": "street"}  [125](house_number) [самал]{"entity": "address_name" , "role": "org"}  самый большой который вот
+    - [супермаркет]{"entity": "address_name" , "role": "org"}  [бабушкина]{"entity": "address_name" , "role": "street"}  [108а](house_number)
+    - здравствуйте я нахожусь [увд]{"entity": "address_name" , "role": "org"}  [ермекова]{"entity": "address_name" , "role": "street"}  [118](house_number)
+    - [абдирова]{"entity": "address_name" , "role": "street"}  [19](house_number) как раз [кафе]{"entity": "address_name" , "role": "org"}  да наверное
+    - [бирюзова]{"entity": "address_name" , "role": "street"}  [37](house_number) к [магазину]{"entity": "address_name" , "role": "org"}  пусть подъедет
+    - мм я [бухар жырау]{"entity": "address_name" , "role": "street"}  [4](house_number) [баня]{"entity": "address_name" , "role": "org"}
+    - [бирюзова]{"entity": "address_name" , "role": "street"}  [37](house_number) это [магазин]{"entity": "address_name" , "role": "org"}  вот здесь находится
+    - [белинского]{"entity": "address_name" , "role": "street"}  [1](house_number) каменный [карьер]{"entity": "address_name" , "role": "org"}
+    - проспект [бухар жырау]{"entity": "address_name" , "role": "street"}  [82](house_number) [торговый дом]{"entity": "address_name" , "role": "org"}
+    - [ерубаева]{"entity": "address_name" , "role": "street"}  [15](house_number) [областную больницу клиническую]{"entity": "address_name" , "role": "org"}
+    - [16 микрорайон]{"entity": "address_name" , "role": "street"}  [43](house_number) там мальчик на улица стоит со [школы]{"entity": "address_name" , "role": "org"}  вышел нужно забрать его
+    - алло здравствуйте [светофор]{"entity": "address_name" , "role": "org"}  на [18]{"entity": "address_name" , "role": "street"}
+    - [сункар]{"entity": "address_name" , "role": "org"}  за [14м]{"entity": "address_name" , "role": "street"}  получается
+    - это заправка [синол]{"entity": "address_name" , "role": "org"}  [учетный квартал104]{"entity": "address_name" , "role": "street"}  за борусаном
+    - здравствуйте заправка [синол]{"entity": "address_name" , "role": "org"}  [104 учетный квартал]{"entity": "address_name" , "role": "street"}
+    - [ботагоз]{"entity": "address_name" , "role": "org"}  который в [15 микрорайон]{"entity": "address_name" , "role": "street"}  я не знаю как он щас называется
+    - на этот на [ануар]{"entity": "address_name" , "role": "org"}  наверное на [восток 1]{"entity": "address_name" , "role": "street"}
+    - здравствуйте [детский мир]{"entity": "address_name" , "role": "org"}  на [17]{"entity": "address_name" , "role": "street"}  на центре буду стоять
+    - на [южном]{"entity": "address_name" , "role": "org"}  нахожусь на [17]{"entity": "address_name" , "role": "street"}
+    - мы находимся [областная больница]{"entity": "address_name" , "role": "org"}  по [ерубаева]{"entity": "address_name" , "role": "street"}
+    - [универсам]{"entity": "address_name" , "role": "org"}  же есть [бабушкина]{"entity": "address_name" , "role": "street"}  что ли улица точно не знаем
+    - секундочку я чтото не знаю [муканова]{"entity": "address_name" , "role": "street"}  [24](house_number) судя по всему [салон красоты дуэт]{"entity": "address_name" , "role": "org"}
+    - мы находимся [бухар жырау]{"entity": "address_name" , "role": "street"}  [139](house_number) [клиника мерей]{"entity": "address_name" , "role": "org"}
+    - [бухар жырау]{"entity": "address_name" , "role": "street"}  [23](house_number) [клиника арт комек]{"entity": "address_name" , "role": "org"}  называется
+    - здравствуйте [складская]{"entity": "address_name" , "role": "street"}  [2](house_number) [магазин светофор]{"entity": "address_name" , "role": "org"}
+    - сейчас секундочку я что то не знаю [муканова]{"entity": "address_name" , "role": "street"}  [24](house_number) судя по всему этот [салон красоты дуэт]{"entity": "address_name" , "role": "org"}
+    - здравствуйте [магнитогорская]{"entity": "address_name" , "role": "street"}  [7](house_number) девочки [клиника виста]{"entity": "address_name" , "role": "org"}  что то я думала что уже не работаете сейчас
+    - здравствуйте [майлина]{"entity": "address_name" , "role": "street"}  [32](house_number) этот господи скажите мне [лицей школалицей №53]{"entity": "address_name" , "role": "org"}
+    - здравствуйте мы хотим заказать такси на [ержанова]{"entity": "address_name" , "role": "street"}  [20](house_number) а [магазин оникс]{"entity": "address_name" , "role": "org"}
+    - здравствуйте оператор можно машина на [бабушкина]{"entity": "address_name" , "role": "street"}  [21](house_number) [магазин дионис]{"entity": "address_name" , "role": "org"}
+    - мы находимся [18 микрорайон]{"entity": "address_name" , "role": "street"}  [садик карлыгашь]{"entity": "address_name" , "role": "org"}
+    - [9микрорайон]{"entity": "address_name" , "role": "street"}  [парикмахерская адема]{"entity": "address_name" , "role": "org"}
+    - поедем [степной1]{"entity": "address_name" , "role": "street"}  [клиника нурболат]{"entity": "address_name" , "role": "org"}
+    - [гульдер1]{"entity": "address_name" , "role": "street"}  [кафе бавария]{"entity": "address_name" , "role": "org"}
+    - [17 микрорайон]{"entity": "address_name" , "role": "street"}  [торговый дом реал]{"entity": "address_name" , "role": "org"}
+    - добрый вечер будьте добры [степной 4]{"entity": "address_name" , "role": "street"}  [магазин алмас]{"entity": "address_name" , "role": "org"}  и вот там…
+    - здравствуйте я в [19]{"entity": "address_name" , "role": "street"}  нахожусь [магазин гарант]{"entity": "address_name" , "role": "org"}
+    - мы находимся [12 микрорайон]{"entity": "address_name" , "role": "street"}  [магазин три 9]{"entity": "address_name" , "role": "org"}
+    - так [12 микрорайон]{"entity": "address_name" , "role": "street"}  получается где вот [гимназия 7 интернат]{"entity": "address_name" , "role": "org"}
+    - здравствуйте я нахожусь [15 микрорайон]{"entity": "address_name" , "role": "street"}  [магазин бьянка]{"entity": "address_name" , "role": "org"}
+    - здравствуйте я нахожусь в [17 микрорайон]{"entity": "address_name" , "role": "street"}  [магазин лидер]{"entity": "address_name" , "role": "org"}
+    - все туда же на [голубые пруды]{"entity": "address_name" , "role": "street"}  в [больницу]{"entity": "address_name" , "role": "org"}
+    - майлина [22]{"entity": "address_name" , "role": "street"}  [магазин]{"entity": "address_name" , "role": "org"}  мне это по месту проехатся
+    - аха вот там нужно [17]{"entity": "address_name" , "role": "street"}  за [школу]{"entity": "address_name" , "role": "org"}  там я не помню как то он называется показать смогу
+    - добрый вечер можно заказать такси на нахожусь на [востоке 2]{"entity": "address_name" , "role": "street"}  [клуб]{"entity": "address_name" , "role": "org"}
+    - да да на [18]{"entity": "address_name" , "role": "street"}  [донерная]{"entity": "address_name" , "role": "org"}  напишите
+    - так получается на [14 –ом]{"entity": "address_name" , "role": "street"}  [олимп]{"entity": "address_name" , "role": "org"}
+    - мы находимся [голубые пруды]{"entity": "address_name" , "role": "street"}  [4 поликлиника]{"entity": "address_name" , "role": "org"}
+    - ало девушка я вот на [голубы пруды]{"entity": "address_name" , "role": "street"}  вызывал на [алботу]{"entity": "address_name" , "role": "org"}  такси
+    - поедем на казахстан ой [14 микрорайон]{"entity": "address_name" , "role": "street"}  я дом не знаю там ну [казахстан]{"entity": "address_name" , "role": "org"}
+    - нет на [восток 2]{"entity": "address_name" , "role": "street"}  дом ну короче где [17 школа]{"entity": "address_name" , "role": "org"}  там дом
+    - на [19]{"entity": "address_name" , "role": "street"}  [солнышко]{"entity": "address_name" , "role": "org"}  пожалуйста отвезите меня домой
+    - мы находимся на [горняке]{"entity": "address_name" , "role": "street"}  [сатурн]{"entity": "address_name" , "role": "org"}
+    - в общем мне нужно [14 микрорайон]{"entity": "address_name" , "role": "street"}  [65 школа]{"entity": "address_name" , "role": "org"}  там где то там
+    - мы находимся на [32 квартале]{"entity": "address_name" , "role": "street"}  [аллергологический центр]{"entity": "address_name" , "role": "org"}
+    - здравствуйте девушка на [18]{"entity": "address_name" , "role": "street"}  на [светофоре]{"entity": "address_name" , "role": "org"}  нахожусь
+    - здраствуйте можно на [магазин аян]{"entity": "address_name" , "role": "org"}  на [12 микрорайоне]{"entity": "address_name" , "role": "street"}
+    - здравствуйте [ресторан абиба]{"entity": "address_name" , "role": "org"}  же есть на [13ом]{"entity": "address_name" , "role": "street"}
+    - здравствуйте такси алем [кафе камелот]{"entity": "address_name" , "role": "org"}  на [15]{"entity": "address_name" , "role": "street"}  который
+    - здравствуйте [магазин мактуп]{"entity": "address_name" , "role": "org"}  [12 микрорайон]{"entity": "address_name" , "role": "street"}  получается
+    - здравствуйте девушка можно такси на [супермаркет южный]{"entity": "address_name" , "role": "org"}  который на [17 микрорайоне]{"entity": "address_name" , "role": "street"}  находится
+    - здрасте это мне такси [строителей]{"entity": "address_name" , "role": "street"}  [25](house_number) [маг дак]{"entity": "address_name" , "role": "org"}
+    - поедем на [жамбыла]{"entity": "address_name" , "role": "street"}  [17](house_number) [музыкальная школа номер 2]{"entity": "address_name" , "role": "org"}
+    - на [гапеева]{"entity": "address_name" , "role": "street"}  там улица там [клиника]{"entity": "address_name" , "role": "org"}  какая то не знаю
+    - мне надо адрес забыл короче [терешково]{"entity": "address_name" , "role": "street"}  [военкомат]{"entity": "address_name" , "role": "org"}  есть же
+    - я же вам говорю [баня]{"entity": "address_name" , "role": "org"} на [17]{"entity": "address_name" , "role": "street"}
+    - здравствуйте я нахожусь [12]{"entity": "address_name" , "role": "street"}  [9](house_number) [кафе айша]{"entity": "address_name" , "role": "org"}
+    - здравствуйте мы находимся в [13]{"entity": "address_name" , "role": "street"}  [9](house_number) [магазин джунель]{"entity": "address_name" , "role": "org"}
+    - здравствуйте [центр микрохирургии глаза]{"entity": "address_name" , "role": "org"}  на [нуркена абдирова]{"entity": "address_name" , "role": "street"}
+    - девушка будьте добры на [счастье есть]{"entity": "address_name" , "role": "org"}  по [нуркена]{"entity": "address_name" , "role": "street"}
+    - здравствуйте  мы находимся в [13]{"entity": "address_name" , "role": "street"}  [9](house_number) [магазин джунель]{"entity": "address_name" , "role": "org"}
+    - добрый вечер  2 человека [степной 4]{"entity": "address_name" , "role": "street"}  [магазин алмас]{"entity": "address_name" , "role": "org"}  и вот там…
+    - [понедельник](date) здравствуйте [гвардейская]{"entity": "address_name" , "role": "street"}  [12](house_number) на [фемиду]{"entity": "address_name" , "role": "org"}
+    - [вторник](date) здравствуйте девушка можно такси на [супермаркет южный]{"entity": "address_name" , "role": "org"}  который на [17 микрорайоне]{"entity": "address_name" , "role": "street"}  находится
+    - [среда](date) алло я [15]{"entity": "address_name" , "role": "street"}  на [сатурн]{"entity": "address_name" , "role": "org"}
+    - [четверг](date)  на [09:00](time) [степной 1]{"entity": "address_name" , "role": "street"}  [дом 29](house_number) [клиника нурболат]{"entity": "address_name" , "role": "org"}
+    - [четверг](date) алло здравствуйте [восток 2]{"entity": "address_name" , "role": "street"}  [фитнес клуб аэрофит]{"entity": "address_name" , "role": "org"}
+    - [пятница](date)  на [22:00](time) [магнитогорская]{"entity": "address_name" , "role": "street"}  [32](house_number) на [военкомате]{"entity": "address_name" , "role": "org"}
+    - [суббота](date) здравствуйте [18]{"entity": "address_name" , "role": "street"}  где [стоматология]{"entity": "address_name" , "role": "org"}
+    - [воскресенье](date) едем [народный банк]{"entity": "address_name" , "role": "org"}  на [карла марксе]{"entity": "address_name" , "role": "street"}
+    - [завтра](date) [ерубаева]{"entity": "address_name" , "role": "street"}  [43](house_number) [больница областная]{"entity": "address_name" , "role": "org"}
+    - [предварительный заказ](date) на [магнитогорскую]{"entity": "address_name" , "role": "street"}  [7](house_number) [клиника виста]{"entity": "address_name" , "role": "org"}
+    - [завтра](date) такси можно [степной 4]{"entity": "address_name" , "role": "street"}  [орхун медикал]{"entity": "address_name" , "role": "org"}
+    - [завтра](date) [сункар]{"entity": "address_name" , "role": "org"}  за [14м]{"entity": "address_name" , "role": "street"}  получается
+    - через [пол часа](time) [19]{"entity": "address_name" , "role": "street"}  [17](house_number) [магазин идеал]{"entity": "address_name" , "role": "org"}
+    - через [2 часа](time) [гарант]{"entity": "address_name" , "role": "org"}  да на [19]{"entity": "address_name" , "role": "street"}
+    - через [3 часа](time) там где до на [белинского]{"entity": "address_name" , "role": "street"}  [ночной магазин]{"entity": "address_name" , "role": "org"}  есть
+    - через [4 часа](time) здравствуйте [магазин аян]{"entity": "address_name" , "role": "org"}  на [13]{"entity": "address_name" , "role": "street"}
+    - через [час](time) [воинский часть]{"entity": "address_name" , "role": "org"} на [14]{"entity": "address_name" , "role": "street"}
+    - через [15 минут](time) [15 микрорайон]{"entity": "address_name" , "role": "street"}  [азс вито марс]{"entity": "address_name" , "role": "org"}
+    - через  [30 минут](time) здравствуйте можно машину на [торговый до реал]{"entity": "address_name" , "role": "org"}  [17]{"entity": "address_name" , "role": "street"}
+    - через  [40 минут](time) на [алиханова]{"entity": "address_name" , "role": "street"}  [37](house_number) [фотостудия]{"entity": "address_name" , "role": "org"}  там
+    - [09:00](time) [18]{"entity": "address_name" , "role": "street"}  [стоматология]{"entity": "address_name" , "role": "org"}
+    - [11:00](time) аха на [колос]{"entity": "address_name" , "role": "org"}  [кузембаева]{"entity": "address_name" , "role": "street"}
+    - [11:15](time) [назарбаева]{"entity": "address_name" , "role": "street"}  [37](house_number) [образовательный центр]{"entity": "address_name" , "role": "org"}
+    - [17:30](time) ало девушка я вот на [голубы пруды]{"entity": "address_name" , "role": "street"}  вызывал на [алботу]{"entity": "address_name" , "role": "org"}  такси
+    - [28 январь](date) на [09:24](time) здравствуйте можно такси на [восток 3]{"entity": "address_name" , "role": "street"}  [дом 8](house_number) [аптека солнечная]{"entity": "address_name" , "role": "org"}
+    - [1 февраль](date) на [09:24](time) здравствуйте [торговый дом айгерим]{"entity": "address_name" , "role": "org"}  на [прудах]{"entity": "address_name" , "role": "street"}
+    - [13 март](date) на [09:24](time) [строительный]{"entity": "address_name" , "role": "street"}  [4](house_number) [казактелеком]{"entity": "address_name" , "role": "org"}
+    - [17 апрель](date) на [17:15](time) все туда же на [голубые пруды]{"entity": "address_name" , "role": "street"}  в [больницу]{"entity": "address_name" , "role": "org"}
+    - [22 май](date) на [12:00](time) здравствуйте [карла маркса]{"entity": "address_name" , "role": "street"}  [7 б](house_number) [народный банк]{"entity": "address_name" , "role": "org"}
+    - [9 июнь](date) на [07:45](time) здравствуйте [1 квартал]{"entity": "address_name" , "role": "street"}  [дом 6](house_number) [магазин жибек]{"entity": "address_name" , "role": "org"}
+    - [8 июль](date) на [04:00](time) здравствуйте [восток 3]{"entity": "address_name" , "role": "street"}  [детский сад ступени]{"entity": "address_name" , "role": "org"}
+    - [31 август](date) на [02:20](time) в [15 микрорайон]{"entity": "address_name" , "role": "street"}  [южный]{"entity": "address_name" , "role": "org"}
+    - [3 сентябрь](date) на [02:20](time) [сауна стимул]{"entity": "address_name" , "role": "org"}  на [19]{"entity": "address_name" , "role": "street"}
+    - [12 октябрь](date) на [02:20](time) здравствуйте такси на [15]{"entity": "address_name" , "role": "street"}  за [15 домом](house_number) [автостоянка]{"entity": "address_name" , "role": "org"}
+    - [8 ноябрь](date) на [12:20](time) [16]{"entity": "address_name" , "role": "street"}  [47](house_number) [магазин бахтияр]{"entity": "address_name" , "role": "org"}
+    - [23 декабрь](date) на [02:20](time) [баня]{"entity": "address_name" , "role": "org"} на [17]{"entity": "address_name" , "role": "street"}
+    - [2 январь](date) здравствуйте [17]{"entity": "address_name" , "role": "street"}  [магазин волна]{"entity": "address_name" , "role": "org"}
+    - [13 февраль](date) [зелинского]{"entity": "address_name" , "role": "street"}  [22](house_number) [симур]{"entity": "address_name" , "role": "org"}
+    - [31 март](date) здравствуйте можно на [кузембаева]{"entity": "address_name" , "role": "street"}  [41](house_number) [магазин дашенька]{"entity": "address_name" , "role": "org"}
+    - [3 апрель](date) [30 школа]{"entity": "address_name" , "role": "org"}  [район новостройки]{"entity": "address_name" , "role": "street"}
+    - [27 май](date) здравствуйте в [13 микрорайоне]{"entity": "address_name" , "role": "street"}  [магазин айсберг]{"entity": "address_name" , "role": "org"}
+    - [4 июнь](date) здравствуйте девочки [бабушкино]{"entity": "address_name" , "role": "street"}  [27](house_number) [магазин дионис]{"entity": "address_name" , "role": "org"}
+    - [14 июль](date) да да на [18]{"entity": "address_name" , "role": "street"}  [донерная]{"entity": "address_name" , "role": "org"}  напишите
+    - [31 август](date) [23 микрорайон]{"entity": "address_name" , "role": "street"}  к [ежику]{"entity": "address_name" , "role": "org"}
+    - [30 сентябрь](date) [шахтерская]{"entity": "address_name" , "role": "street"}  [больница]{"entity": "address_name" , "role": "org"}
+    - [16 октябрь](date) здравствуйте оператор можно машина на [бабушкина]{"entity": "address_name" , "role": "street"}  [21](house_number) [магазин дионис]{"entity": "address_name" , "role": "org"}
+    - [8 ноябрь](date) ало здравствуйте [баня]{"entity": "address_name" , "role": "org"} на [17]{"entity": "address_name" , "role": "street"}
+    - [12 декабрь](date) нет нет [восток 1]{"entity": "address_name" , "role": "street"}  [дом 3](house_number) [стоматология]{"entity": "address_name" , "role": "org"}
+    - [19 декабрь](date) здравствуйте [космонавта]{"entity": "address_name" , "role": "street"}  [11](house_number) [ресторан гульжан]{"entity": "address_name" , "role": "org"}
+    - [11 а микрорайон]{"entity": "address_name" , "role": "street"}  [больница]{"entity": "address_name" , "role": "org"} [понедельник](date)
+    - [белинского]{"entity": "address_name" , "role": "street"}  [5](house_number) с [магазина]{"entity": "address_name" , "role": "org"} [вторник](date)
+    - алло здравствуйте [15 микрорайон]{"entity": "address_name" , "role": "street"}  [мясной двор]{"entity": "address_name" , "role": "org"} [среда](date)
+    - девушка будьте добры на [южный]{"entity": "address_name" , "role": "org"}  в [17]{"entity": "address_name" , "role": "street"} [четверг](date)  на [09:00](time)
+    - здравствуйте можно такси на [восток 3]{"entity": "address_name" , "role": "street"}  [дом 8](house_number) [аптека солнечная]{"entity": "address_name" , "role": "org"} [четверг](date)
+    - это заправка [синол]{"entity": "address_name" , "role": "org"}  [учетный квартал104]{"entity": "address_name" , "role": "street"}  за борусаном [пятница](date)  на [22:00](time)
+    - ало здравствуйте [баня]{"entity": "address_name" , "role": "org"} на [17]{"entity": "address_name" , "role": "street"} [суббота](date)
+    - [16]{"entity": "address_name" , "role": "street"}  [47](house_number) [магазин бахтияр]{"entity": "address_name" , "role": "org"} [воскресенье](date)
+    - [сейфулина]{"entity": "address_name" , "role": "street"}  [11](house_number) [кафе натали]{"entity": "address_name" , "role": "org"} [завтра](date)
+    - [сарыарка нан]{"entity": "address_name" , "role": "org"}  на [заводской]{"entity": "address_name" , "role": "street"} [предварительный заказ](date)
+    - здравствуйте девушка это [школа номер 17]{"entity": "address_name" , "role": "org"}  на [востоке 2]{"entity": "address_name" , "role": "street"} [завтра](date)
+    - поедем на [кемеровскую]{"entity": "address_name" , "role": "street"}  [57](house_number) [магазин профи сад]{"entity": "address_name" , "role": "org"} [завтра](date)
+    - [чкалова]{"entity": "address_name" , "role": "street"}  [11](house_number) [трава]{"entity": "address_name" , "role": "org"} через [пол часа](time)
+    - на [ерубаева]{"entity": "address_name" , "role": "street"}  [8](house_number) [гиппократ]{"entity": "address_name" , "role": "org"} через [2 часа](time)
+    - здравствуйте [восток 1]{"entity": "address_name" , "role": "street"}  [дом 5](house_number) [стоматология]{"entity": "address_name" , "role": "org"} через [3 часа](time)
+    - здравствуйте [кафе камелот]{"entity": "address_name" , "role": "org"}  в [15 микрорайон]{"entity": "address_name" , "role": "street"} через [4 часа](time)
+    - здравствуйте девушка можно машину в [17 микрорайон]{"entity": "address_name" , "role": "street"}  [баня]{"entity": "address_name" , "role": "org"} через [час](time)
+    - добрый вечер [65 школа]{"entity": "address_name" , "role": "org"}  [14 микрорайон]{"entity": "address_name" , "role": "street"} через [15 минут](time)
+    - в [15]{"entity": "address_name" , "role": "street"}  [сатурн]{"entity": "address_name" , "role": "org"} через  [30 минут](time)
+    - здравствуйте [19 микрорайон]{"entity": "address_name" , "role": "street"}  [дом 43](house_number) [стоматология жемчуг]{"entity": "address_name" , "role": "org"} через  [40 минут](time)
+    - [17 мкрн]{"entity": "address_name" , "role": "street"}  [ласточка]{"entity": "address_name" , "role": "org"} [09:00](time)
+    - здравствуйте мой дед хочет на [гаражи]{"entity": "address_name" , "role": "org"} поехать на [12]{"entity": "address_name" , "role": "street"}  там [11:00](time)
+    - здравствуйте [пристанционная]{"entity": "address_name" , "role": "street"}  [64](house_number) [баня]{"entity": "address_name" , "role": "org"} [11:15](time)
+    - здравствуйте на [прудах]{"entity": "address_name" , "role": "street"}  [магазин инсар]{"entity": "address_name" , "role": "org"} [17:30](time)
+    - здравствуйте [восток 5]{"entity": "address_name" , "role": "street"}  [дом 6](house_number) [магазин береке]{"entity": "address_name" , "role": "org"} [28 январь](date) на [09:24](time)
+    - [южный]{"entity": "address_name" , "role": "org"}  в [17м]{"entity": "address_name" , "role": "street"} [1 февраль](date) на [09:24](time)
+    - здравствуйте [восток 3]{"entity": "address_name" , "role": "street"}  [детский сад ступени]{"entity": "address_name" , "role": "org"} [13 март](date) на [09:24](time)
+    - [восток 5]{"entity": "address_name" , "role": "street"}  [6](house_number) [магазин береке]{"entity": "address_name" , "role": "org"} [17 апрель](date) на [17:15](time)
+    - здравствуйте [17]{"entity": "address_name" , "role": "street"}  [магазин волна]{"entity": "address_name" , "role": "org"} [22 май](date) на [12:00](time)
+    - здравствуйте [бухаржырау]{"entity": "address_name" , "role": "street"}  [86](house_number) [магнум]{"entity": "address_name" , "role": "org"} [9 июнь](date) на [07:45](time)
+    - [53 школа]{"entity": "address_name" , "role": "org"}  на [кузембаева]{"entity": "address_name" , "role": "street"} [8 июль](date) на [04:00](time)
+    - [17 микрорайон]{"entity": "address_name" , "role": "street"}  [садик балапан]{"entity": "address_name" , "role": "org"} [31 август](date) на [02:20](time)
+    - добрый день [больница 4]{"entity": "address_name" , "role": "org"}  на [голубых прудах]{"entity": "address_name" , "role": "street"} [3 сентябрь](date) на [02:20](time)
+    - [ерубаева]{"entity": "address_name" , "role": "street"}  [43](house_number) [больница областная]{"entity": "address_name" , "role": "org"} [12 октябрь](date) на [02:20](time)
+    - мы находимся [бухар жырау]{"entity": "address_name" , "role": "street"}  [139](house_number) [клиника мерей]{"entity": "address_name" , "role": "org"} [8 ноябрь](date) на [12:20](time)
+    - мм я [бухар жырау]{"entity": "address_name" , "role": "street"}  [4](house_number) [баня]{"entity": "address_name" , "role": "org"} [23 декабрь](date) на [02:20](time)
+    - здравствуйте в [17]{"entity": "address_name" , "role": "street"}  [южный]{"entity": "address_name" , "role": "org"} [2 январь](date)
+    - на [голубые пруды]{"entity": "address_name" , "role": "street"}  [магазин айгерим]{"entity": "address_name" , "role": "org"} [13 февраль](date)
+    - [16 поликлиника]{"entity": "address_name" , "role": "org"}  [пруды]{"entity": "address_name" , "role": "street"} [31 март](date)
+    - [южный]{"entity": "address_name" , "role": "org"}  в [17м]{"entity": "address_name" , "role": "street"} [3 апрель](date)
+    - [15]{"entity": "address_name" , "role": "street"}  [23](house_number) [магазин автомир]{"entity": "address_name" , "role": "org"} [27 май](date)
+    - аа [голубые пруды]{"entity": "address_name" , "role": "street"}  [детский сад толагай]{"entity": "address_name" , "role": "org"} [4 июнь](date)
+    - да только с [12]{"entity": "address_name" , "role": "street"}  в [аэропорт]{"entity": "address_name" , "role": "org"} [14 июль](date)
+    - здравствуйте [14]{"entity": "address_name" , "role": "street"}  [32](house_number) [магазин фемида]{"entity": "address_name" , "role": "org"} [31 август](date)
+    - [гульдер 1]{"entity": "address_name" , "role": "street"}  [дом 15](house_number) [магазин]{"entity": "address_name" , "role": "org"} [30 сентябрь](date)
+    - [кривогуза]{"entity": "address_name" , "role": "street"}  [7](house_number) [музыкальный интернат]{"entity": "address_name" , "role": "org"} [16 октябрь](date)
+    - здравствуйте можно пожалуйста на [восток 1]{"entity": "address_name" , "role": "street"}  [дом 13](house_number) [парикмахерская млена]{"entity": "address_name" , "role": "org"} [8 ноябрь](date)
+    - здравствуйте можно машину на [десткий садик дыранды бала]{"entity": "address_name" , "role": "org"}  на [19]{"entity": "address_name" , "role": "street"} [12 декабрь](date)
+    - [автосервис фарт]{"entity": "address_name" , "role": "org"}  на [11 – ом]{"entity": "address_name" , "role": "street"} [19 декабрь](date)
+    - [понедельник](date) [олимпийская]{"entity": "address_name" , "role": "street"}  [мед центр]{"entity": "address_name" , "role": "org"}
+    - [вторник](date) здравствуйте [ермекова]{"entity": "address_name" , "role": "street"}  [18](house_number) [аланда]{"entity": "address_name" , "role": "org"}
+    - [среда](date) доброе утро [11а]{"entity": "address_name" , "role": "street"}  [20а](house_number) [садик армашка]{"entity": "address_name" , "role": "org"}
+    - [четверг](date)  на [09:00](time) здравствуйте [ержанова]{"entity": "address_name" , "role": "street"}  [18](house_number) [бизнесцентр]{"entity": "address_name" , "role": "org"}
+    - [четверг](date) с [16]{"entity": "address_name" , "role": "street"}  до [тбц]{"entity": "address_name" , "role": "org"}
+    - [пятница](date)  на [22:00](time) девочки [жамбыла]{"entity": "address_name" , "role": "street"}  [17](house_number) [музыкальная школа номер 2]{"entity": "address_name" , "role": "org"}
+    - [суббота](date) аха на [востоке 2]{"entity": "address_name" , "role": "street"}  [олимп]{"entity": "address_name" , "role": "org"}
+    - [воскресенье](date) [ерубаева]{"entity": "address_name" , "role": "street"}  [47](house_number) [аптека форте]{"entity": "address_name" , "role": "org"}
+    - [завтра](date) [17 мкр]{"entity": "address_name" , "role": "street"}  [магазин мебели омега]{"entity": "address_name" , "role": "org"}
+    - [предварительный заказ](date) [кузембаева]{"entity": "address_name" , "role": "street"}  [79](house_number) [цветочный магазин]{"entity": "address_name" , "role": "org"}
+    - [завтра](date) там на [баня алые парус]{"entity": "address_name" , "role": "org"}  есть где [кунгей]{"entity": "address_name" , "role": "street"}
+    - [завтра](date) можно машину [пруды]{"entity": "address_name" , "role": "street"}  [больница]{"entity": "address_name" , "role": "org"}
+    - через [пол часа](time) да да на [18]{"entity": "address_name" , "role": "street"}  [донерная]{"entity": "address_name" , "role": "org"}  напишите
+    - через [2 часа](time) [казахстанская]{"entity": "address_name" , "role": "street"}  [1](house_number) [стадион шахтер]{"entity": "address_name" , "role": "org"}
+    - через [3 часа](time) [инфекционная больница]{"entity": "address_name" , "role": "org"}  на [охотской]{"entity": "address_name" , "role": "street"}
+    - через [4 часа](time) здравствуйте я нахожусь [15 микрорайон]{"entity": "address_name" , "role": "street"}  [магазин бьянка]{"entity": "address_name" , "role": "org"}
+    - через [час](time) [гоголя]{"entity": "address_name" , "role": "street"}  [95](house_number) [инфинити]{"entity": "address_name" , "role": "org"}
+    - через [15 минут](time) [поликлиника 11]{"entity": "address_name" , "role": "org"}  [11а]{"entity": "address_name" , "role": "street"}
+    - через  [30 минут](time) [муканова]{"entity": "address_name" , "role": "street"}  [26](house_number) [салон красоты дуэт]{"entity": "address_name" , "role": "org"}
+    - через  [40 минут](time) [12]{"entity": "address_name" , "role": "street"}  [13](house_number) [кафе жулдыз]{"entity": "address_name" , "role": "org"}
+    - [09:00](time) [14 мкрн]{"entity": "address_name" , "role": "street"}  на этот [финансовый колледж]{"entity": "address_name" , "role": "org"}
+    - [11:00](time) на этот на [ануар]{"entity": "address_name" , "role": "org"}  наверное на [восток 1]{"entity": "address_name" , "role": "street"}
+    - [11:15](time) добрый день [больница 4]{"entity": "address_name" , "role": "org"}  на [голубых прудах]{"entity": "address_name" , "role": "street"}
+    - [17:30](time) [18 микрорайон]{"entity": "address_name" , "role": "street"}  [магазин феллида]{"entity": "address_name" , "role": "org"}
+    - [28 январь](date) на [09:24](time) [ынтымак]{"entity": "address_name" , "role": "street"}  [24](house_number) [садик]{"entity": "address_name" , "role": "org"}
+    - [1 февраль](date) на [09:24](time) это [южный]{"entity": "address_name" , "role": "org"}  на [17]{"entity": "address_name" , "role": "street"}
+    - [13 март](date) на [09:24](time) здравствуйте девушка [волочаевская]{"entity": "address_name" , "role": "street"}  [7](house_number) [детское кафе балажан]{"entity": "address_name" , "role": "org"}
+    - [17 апрель](date) на [17:15](time) алло я [15]{"entity": "address_name" , "role": "street"}  на [сатурн]{"entity": "address_name" , "role": "org"}
+    - [22 май](date) на [12:00](time) так [4 поликлиника]{"entity": "address_name" , "role": "org"}  [пруды]{"entity": "address_name" , "role": "street"}  поедем
+    - [9 июнь](date) на [07:45](time) поедем на [горняк]{"entity": "address_name" , "role": "street"}  [гимназия]{"entity": "address_name" , "role": "org"}
+    - [8 июль](date) на [04:00](time) здравствуйте я на [южном]{"entity": "address_name" , "role": "org"}  [17]{"entity": "address_name" , "role": "street"}
+    - [31 август](date) на [02:20](time) здравствуйте [восток 3]{"entity": "address_name" , "role": "street"}  [дом 8](house_number) [аптека]{"entity": "address_name" , "role": "org"}
+    - [3 сентябрь](date) на [02:20](time) [ресторан заман]{"entity": "address_name" , "role": "org"}  на [прудах]{"entity": "address_name" , "role": "street"}
+    - [12 октябрь](date) на [02:20](time) [касыма аманжолова]{"entity": "address_name" , "role": "street"}  [162](house_number) это [гостиница космонавт]{"entity": "address_name" , "role": "org"}
+    - [8 ноябрь](date) на [12:20](time) здравствуйте [складская]{"entity": "address_name" , "role": "street"}  [2](house_number) [магазин светофор]{"entity": "address_name" , "role": "org"}
+    - [23 декабрь](date) на [02:20](time) здравствуйте [кафе каракоз]{"entity": "address_name" , "role": "org"}  [восток 1]{"entity": "address_name" , "role": "street"}
+    - [2 январь](date) здравствуйте [курочка ряба]{"entity": "address_name" , "role": "org"}  на [прудах]{"entity": "address_name" , "role": "street"}
+    - [13 февраль](date) в [кунгей]{"entity": "address_name" , "role": "street"}  [баню]{"entity": "address_name" , "role": "org"}
+    - [31 март](date) на [заир]{"entity": "address_name" , "role": "org"}  в [11а]{"entity": "address_name" , "role": "street"}
+    - [3 апрель](date) так [4 поликлиника]{"entity": "address_name" , "role": "org"}  [пруды]{"entity": "address_name" , "role": "street"}  поедем
+    - [27 май](date) [13]{"entity": "address_name" , "role": "street"}  [9](house_number) [магазин журнель]{"entity": "address_name" , "role": "org"}
+    - [4 июнь](date) здравствуйте [18]{"entity": "address_name" , "role": "street"}  где [стоматология]{"entity": "address_name" , "role": "org"}
+    - [14 июль](date) алло здравствуйте [12]{"entity": "address_name" , "role": "street"}  [22](house_number) [магазин турист]{"entity": "address_name" , "role": "org"}
+    - [31 август](date) [12]{"entity": "address_name" , "role": "street"}  [17](house_number) [кафе жулдыз]{"entity": "address_name" , "role": "org"}
+    - [30 сентябрь](date) поедем на [18]{"entity": "address_name" , "role": "street"}  [магазин пинта]{"entity": "address_name" , "role": "org"}
+    - [16 октябрь](date) здравствуйте [бирюзова]{"entity": "address_name" , "role": "street"}  [23](house_number) а [детский садик акбота]{"entity": "address_name" , "role": "org"}
+    - [8 ноябрь](date) на [голубые пруды]{"entity": "address_name" , "role": "street"}  [магазин айгерим]{"entity": "address_name" , "role": "org"}
+    - [12 декабрь](date) [штурманская]{"entity": "address_name" , "role": "street"}  [21](house_number) [гостиница акжол]{"entity": "address_name" , "role": "org"}
+    - [19 декабрь](date) [17 мкр]{"entity": "address_name" , "role": "street"}  [казпочта]{"entity": "address_name" , "role": "org"}
+    - [универсал](preferences) здравствуйте [12]{"entity": "address_name" , "role": "street"}  [29](house_number) [магазин фелида]{"entity": "address_name" , "role": "org"}
+    - [большой багажник](preferences) здравствуйте [майлина]{"entity": "address_name" , "role": "street"}  [22](house_number) [гастроном]{"entity": "address_name" , "role": "org"}
+    - оплата через [каспий](preferences) [баня]{"entity": "address_name" , "role": "org"} на [17]{"entity": "address_name" , "role": "street"}
+    - [не курящий салон](preferences) через [час](time) [воинский часть]{"entity": "address_name" , "role": "org"} на [14]{"entity": "address_name" , "role": "street"}
+    - [иномарка](preferences) аа [голубые пруды]{"entity": "address_name" , "role": "street"}  [детский сад толагай]{"entity": "address_name" , "role": "org"}
+    - [тапчан]{"entity": "address_name" , "role": "org"}  на [татимбета]{"entity": "address_name" , "role": "street"} [универсал](preferences)
+    - да [машинсткая]{"entity": "address_name" , "role": "street"}  [26](house_number) с [южного]{"entity": "address_name" , "role": "org"} [большой багажник](preferences)
+    - [17 микрорайоне]{"entity": "address_name" , "role": "street"}  [43 дом](house_number) [стоматология]{"entity": "address_name" , "role": "org"} оплата через [каспий](preferences)
+    - в [школу 74]{"entity": "address_name" , "role": "org"}  [бабушкина]{"entity": "address_name" , "role": "street"} [не курящий салон](preferences)
+    - здравствуйте мне машину на [каз почту]{"entity": "address_name" , "role": "org"}  на [восток 1]{"entity": "address_name" , "role": "street"} [иномарка](preferences)
+    - [универсал](preferences) на [магнитогорскую]{"entity": "address_name" , "role": "street"}  [7](house_number) [клиника виста]{"entity": "address_name" , "role": "org"}
+    - [большой багажник](preferences) здравствуйте [12]{"entity": "address_name" , "role": "street"}  [29](house_number) [магазин айгерим]{"entity": "address_name" , "role": "org"}
+    - оплата через [каспий](preferences) [восток 3]{"entity": "address_name" , "role": "street"}  [золотой родник]{"entity": "address_name" , "role": "org"}
+    - [не курящий салон](preferences) в общем мне нужно [14 микрорайон]{"entity": "address_name" , "role": "street"}  [65 школа]{"entity": "address_name" , "role": "org"}  там где то там
+    - [иномарка](preferences) добрый вечер будьте добры [степной 4]{"entity": "address_name" , "role": "street"}  [магазин алмас]{"entity": "address_name" , "role": "org"}  и вот там…
+    - [универсал](preferences) [олимпийская]{"entity": "address_name" , "role": "street"}  [мед центр]{"entity": "address_name" , "role": "org"}
+    - [большой багажник](preferences) с [магазина алуа]{"entity": "address_name" , "role": "org"}  на [15]{"entity": "address_name" , "role": "street"}
+    - оплата через [каспий](preferences) здравствуйте на [12]{"entity": "address_name" , "role": "street"}  мне [магазин]{"entity": "address_name" , "role": "org"}
+    - [не курящий салон](preferences) [аэрофит]{"entity": "address_name" , "role": "org"}  [восток 2]{"entity": "address_name" , "role": "street"}
+    - [иномарка](preferences) я же вам говорю [баня]{"entity": "address_name" , "role": "org"} на [17]{"entity": "address_name" , "role": "street"}
+    - [универсал](preferences) [роза люксембург]{"entity": "address_name" , "role": "street"}  [47](house_number) [магазин визит]{"entity": "address_name" , "role": "org"}
+    - [большой багажник](preferences) [30 школа]{"entity": "address_name" , "role": "org"}  [район новостройки]{"entity": "address_name" , "role": "street"}
+    - оплата через [каспий](preferences) здравствуйте [19 микрорайон]{"entity": "address_name" , "role": "street"}  [45 б](house_number) [детский сад дарынды бала]{"entity": "address_name" , "role": "org"}
+    - [не курящий салон](preferences) [затаевича]{"entity": "address_name" , "role": "street"}  [77 а](house_number) [рынок]{"entity": "address_name" , "role": "org"}
+    - [иномарка](preferences) на [голубые пруды]{"entity": "address_name" , "role": "street"}  [77 школа]{"entity": "address_name" , "role": "org"}

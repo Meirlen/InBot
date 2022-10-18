@@ -3,9 +3,9 @@
 IS_DEBUG_MODE =  False # for actions
 TELEGRAM_IS_PROD = False 
 TELEGRAM_IS_PROD = False 
-TELEGRAM_IS_PROD = False 
+TELEGRAM_IS_PROD = True 
 
-ACTION_ENDPOINT = "http://localhost:5005" 
+ACTION_ENDPOINT = "http://localhost:5006" 
 
 ADMIN_CHAT_ID = 2038418743 # the same 87471835157
 ADMIN_CHAT_ID_2 = 5172316091 # the same 87711474766
@@ -40,8 +40,7 @@ BOT_NO_COULD_NOT_CALC_COST_MESSAGE = '_____________'
 BOT_CALC_COST_WARNING_MESSAGE = '\n\n_При формировании оплаты бот может ошибиться._'
 BOT_ASK_TO_ADDRESS ='💁 <b>Куда едем?</b>\n\n'
 
-# BODY_WHATSAPP_ASK_ADDRESS_FROM = '💁 *- Чтобы заказать такси напишите Откуда и Куда поедете?*\n\n Например: \n_«c 12 13 16 поедем на Восток 2»_\n_«с Алиханова 7 квартира 89 на цум»_\n\n'
-BODY_WHATSAPP_ASK_ADDRESS_FROM = '💁 *- Откуда и Куда поедете?*'
+BODY_WHATSAPP_ASK_ADDRESS_FROM = '💁 *- Чтобы заказать такси напишите Откуда и Куда поедете?*\n\n Например: \n_«c 12 13 16 поедем на Восток 2»_\n_«с Алиханова 7 квартира 89 на цум»_\n\n'
 
 TEMPLATE_START_TEXT = 'Поездка №'
 

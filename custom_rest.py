@@ -17,7 +17,7 @@ from rasa.core.channels.channel import (
 from callbot_api import send_smpp_message
 from yandex_stt import update_token
 from wati import update_whatsapp_token
-from local_db_for_actions import search_user_by_phone_number,update_status_by_admin
+from actions.local_db_for_actions import search_user_by_phone_number,update_status_by_admin
 from actions.action_helper import clear_address_form_slots_after_car_arrived,send_ask_address_form
 from rasa_api import get_order_status_by_conversation_id
 from telegram_admin_api import send_to_admin_simple_message
@@ -187,6 +187,10 @@ class RestInput(InputChannel):
                     update_whatsapp_token(token)
                     text = 'история backup'   
                 elif "&&" in text: 
+                    # Okteto as a server
+                    # send_smpp_message(text)
+                    # return response.text("Сообщение о прибытий авто получено")
+
                     # digital ocean
                     msg_parts = text.split('&&')
                     phone_number = msg_parts[0]

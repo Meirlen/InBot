@@ -1,11 +1,14 @@
 
+from pydoc import text
+import time
 from actions.app_constans import *
 from helper.Utils import *
-from local_db_for_actions import *
+from actions.local_db_for_actions import *
+from actions.price.price_generator import price_dict
 from actions.price.zone import *
 from telegram_api import *
-from rasa_sdk import Tracker
-from typing import Any, Text, Dict
+from rasa_sdk import Action, FormValidationAction,  Tracker
+from typing import Any, Text, Dict, List, Optional
 from rasa_sdk.events import Restarted, SlotSet, EventType,ConversationPaused,ConversationResumed,FollowupAction
 from wati import *
 from orders_db import *
@@ -25,11 +28,11 @@ def get_car_arrived_message(phone_number):
 
 # only whatsapp
 def phone_number_from_meta_data(tracker):
-    phone_number = tracker.latest_message["metadata"]["phone_number"]
-    if phone_number == None:
-       return tracker.get_slot('phone_number')
+    phone_number = get_phone_number_from_slot(tracker)
+    if phone_number != None:
+       return phone_number_validate(phone_number)
     else:
-        return phone_number_validate(phone_number)
+       return None
 
 
 
@@ -43,7 +46,15 @@ def platform_from_meta_data(tracker):
            platform = 'admin'    
     return platform
 
-
+def platform_from_meta_data(tracker):
+    if IS_DEBUG_MODE:
+        platform = 'telegram'
+    else: 
+        try:   
+           platform = tracker.latest_message["metadata"]["platform"]
+        except:
+           platform = 'admin'    
+    return platform
 
 def is_whatsapp(tracker):
     return platform_from_meta_data(tracker) == 'whatsapp'
@@ -51,10 +62,21 @@ def is_whatsapp(tracker):
 
 # use only whatsapp
 def get_phone_number(tracker):
+    
     if is_whatsapp(tracker):
-       return {'phone_num':  str(phone_number_from_meta_data(tracker)).replace('+','')}
+    #    return {'phone_num':  str(phone_number_from_meta_data(tracker)).replace('+','')}
+       return {'phone_num':  str(get_phone_number_from_slot(tracker)).replace('+','')}
+
     else:
        return None 
+
+
+def get_phone_number_from_slot(tracker):
+       phone_number = tracker.get_slot('phone_number')
+       if phone_number == None:
+          return tracker.latest_message["metadata"]["phone_number"]
+       else:
+          return phone_number.replace('+','')
 
 
 # if templates
@@ -114,7 +136,7 @@ def show_ask_from_address(dispatcher,tracker):
 
 
 def generate_price_info(tracker):
-    phone_number = tracker.get_slot('phone_number')
+    phone_number =  get_phone_number_from_slot(tracker)
 
     to_address = tracker.get_slot('to_address')
     price_trip =  tracker.get_slot('price_trip')
@@ -355,24 +377,17 @@ def trigger_address_form(tracker,dispatcher):
             chat_id = chat_id_from_meta_data(tracker)
 
 
- 
-        
+
+
         if is_auth_user(user_id) == None:
             print('un_auth state')
-            # if is_whatsapp(tracker):
-            #     # skip registration for whatsapp users
-            #     show_unauthorized_state_for_whatsapp(dispatcher,tracker)
-            #     phone_number = phone_number_from_meta_data(tracker)
-
-            #     dispatcher.utter_message(
-            #             text="MetaData: "+str(tracker.latest_message["metadata"]),kwargs=get_phone_number(tracker))
-            #     return [SlotSet("phone_number", phone_number),SlotSet("requested_slot", "from_address")]
-            # else:   
-            #     return [SlotSet("requested_slot", "phone_number")]
-                        # skip registration for whatsapp users
-            phone_number = phone_number_from_meta_data(tracker)
-
-            return [SlotSet("phone_number", phone_number),SlotSet("requested_slot", "from_address")]
+            if is_whatsapp(tracker):
+                # skip registration for whatsapp users
+                show_unauthorized_state_for_whatsapp(dispatcher,tracker)
+                phone_number = phone_number_from_meta_data(tracker)
+                return [SlotSet("phone_number", phone_number),SlotSet("requested_slot", "from_address")]
+            else:   
+                return [SlotSet("requested_slot", "phone_number")]
   
         else:
 
@@ -432,7 +447,7 @@ def send_ask_address_form(phone_number):
          
         templates = get_templates(phone_number)
 
-        text = BODY_WHATSAPP_ASK_ADDRESS_FROM
+        text = BODY_WHATSAPP_ASK_ADDRESS_FROM +' templates size'+str(len(templates))+' of:'+str(phone_number)
 
         if len(templates) == 0:
             send_message(phone_number,text)

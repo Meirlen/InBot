@@ -1,13 +1,10 @@
-import imp
-from re import M
 from tokenize import Double
-from matplotlib.pyplot import get
 from shapely.geometry import Point, Polygon
 from dataclasses import dataclass
 import sqlite3
 from actions.app_constans import *
 from yandex_helper import get_coordinates_by_yandex_api
-from local_db_for_actions import *
+from actions.local_db_for_actions import *
 
 DB_NAME = 'krg_address.db'
 

@@ -14,7 +14,7 @@ from actions.price.zone import *
 from actions.price.price_generator import *
 from telegram_api import *
 from callbot_api import *
-from local_db_for_actions import *
+from actions.local_db_for_actions import *
 from actions.action_helper import *
 
 
@@ -60,7 +60,7 @@ class ActionAdminSingleDirect(Action):
         if is_require_human_help(tracker):
             phone_number = tracker.sender_id
             from_address = from_address_text(tracker)
-            send_message(phone_number,create_body_ask_to_address(from_address))
+            send_message_with_menu(phone_number,create_body_ask_to_address(from_address))
             return [SlotSet("help_human", "reply"),SlotSet("to_address", None),SlotSet("to_house_number", None),SlotSet("requested_slot", "to_address"),FollowupAction("validate_address_form")]
 
         else:

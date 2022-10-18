@@ -21,7 +21,7 @@ from actions.price.zone import *
 from actions.price.price_generator import *
 from telegram_api import *
 from callbot_api import *
-from local_db_for_actions import *
+from actions.local_db_for_actions import *
 from actions.action_helper import *
 
 
@@ -180,6 +180,9 @@ def show_unauthorized_state(dispatcher, tracker):
     else:    
         name = username_from_meta_data(tracker)
 
+    dispatcher.utter_message(
+                        text="Номер"+str(tracker.latest_message["metadata"]),kwargs=get_phone_number(tracker))
+
     msg = '💁 Привет <b>'+str(name)+'!</b> ✋\n\n'
     msg += 'Вас приветствует такси Алем!\n🚕 Чтобы заказать такси в нашем боте вам нужно будет указать номер телефона 📱 или отправьте нажав соответствующую кнопку снизу, в меню.'
 
@@ -206,7 +209,7 @@ def show_profile(dispatcher, tracker):
     else:    
         name = username_from_meta_data(tracker)
 
-    phone_number = tracker.get_slot('phone_number')
+    phone_number = get_phone_number_from_slot(tracker)
     chat_id = tracker.get_slot('chat_id')
 
     msg = str(name)+'\n'
@@ -396,7 +399,7 @@ class ActionAskOrderConfirm(Action):
 
 
         if is_require_human_help(tracker):
-            # dispatcher.utter_message(text=f"💁Минуточку..Мы проверяем введенные данные",kwargs=get_phone_number(tracker))
+            dispatcher.utter_message(text=f"💁Минуточку..Мы проверяем введенные данные",kwargs=get_phone_number(tracker))
             return []
 
         else:

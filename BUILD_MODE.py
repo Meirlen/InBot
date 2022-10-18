@@ -153,7 +153,7 @@ def update_yandex_token_in_prod(new_token):
 # SETUP BUILD MODE 
 # Prod: don't forget pull db from server
 # # Bug: double call
-change_build_mode(is_release = False)
+change_build_mode(is_release = True)
 
 # update_yandex_token_in_prod(generate_new_token())
 # generate_new_token()
@@ -165,3 +165,24 @@ change_build_mode(is_release = False)
 # digital ocean pass apA91ata!a
 # Install Docker in do
 # curl -fsSL https://get.docker.com -o get-docker.sh
+
+
+# git commit -m "Remove ignored files"
+#  git config --global user.email "miko_982@mail.ru"
+#  git config --global user.name "Meirlen"
+
+# git remote add origin https://github.com/Meirlen/InBot.git
+# git remote set-url origin https://github.com/Meirlen/InBot.git
+
+# git branch -M main
+# git push -u origin main
+
+# git push origin master
+
+
+# cmd
+# rm -rf directory_name
+# docker container ls
+# docker rm 5c7a2a2632b8
+# docker stop 5c7a2a2632b8
+# docker-compose up

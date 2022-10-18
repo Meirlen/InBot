@@ -1,0 +1,14 @@
+Правила по генераций данных
+
+
+#              intent                       generator                                                decription    
+
+1              street                    smart_generator2                 add_data_to_txt(generate_adress_nlu(),'/content/adress_nlu.txt')
+
+2              organization              smart_generator2                 generate_all()
+
+3              street+organization       smart_generator                  add_data_to_txt(sorted(generate_adress_nlu(), key = lambda x: random.random()),"/content/address+info.txt") 
+
+4              order+organization        smart_generator2                 generate_order_plus_orgs()
+
+5              order+adress              smart_generator2                 generate_order_plus_adress_data()

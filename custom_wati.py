@@ -88,24 +88,18 @@ class WatiInput(InputChannel):
             """
 
             metadata = request.json
-            print('METADATA:', metadata)
-    
-
+        
 
             try:
                 user_id = metadata["waId"]
+                username = metadata["senderName"]
                 chat_id = metadata["waId"]
             except:    
                 user_id = None
+                username = None
                 chat_id = None
 
-            try:
-                username = metadata["senderName"]
-            except:    
-                username = None
 
-
- 
             res = {}
             res['user_id'] = user_id
             res['phone_number'] = user_id
@@ -451,7 +445,7 @@ class WaitOutputChannel(CollectingOutputChannel):
         elif '[body_to_adress_ask_form]' in text:
             print('[body_to_adress_ask_form]')
             from_address = text.split('[body_to_adress_ask_form]')[1]
-            send_message(phone_number,create_body_ask_to_address(from_address))
+            send_message_with_menu(phone_number,create_body_ask_to_address(from_address))
         else:
             send_message(phone_number,text)
 

@@ -71,7 +71,6 @@ def get_order_id(phone_number):
 def update_status(tracker,status,message = None):
 
     chat_id = tracker.get_slot('chat_id')
-    phone_number = tracker.get_slot('phone_number')
 
     print('Chat_id_1: '+ str(chat_id))
     if chat_id != None:
@@ -89,8 +88,6 @@ def update_status(tracker,status,message = None):
 def update_order_id(tracker,order_id):
 
     chat_id = tracker.get_slot('chat_id')
-    phone_number = tracker.get_slot('phone_number')
-    print(phone_number)
   
     print('Chat_id'+ str(chat_id))
     if chat_id != None:
@@ -217,4 +214,3 @@ def search_by_levenshtein_distance(name):
 
 
 
-print(get_order_id('+77087550160'))

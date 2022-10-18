@@ -36,4 +36,3 @@ ADD callbot_api.py callbot_api.py
 ADD rasa_api.py rasa_api.py
 ADD telegram_admin_api.py telegram_admin_api.py
 ADD AppSingleton.py AppSingleton.py
-ADD local_db_for_actions.py  local_db_for_actions.py 

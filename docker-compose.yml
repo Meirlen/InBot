@@ -16,7 +16,6 @@ services:
     - ./krg_address.db:/app/krg_address.db
     - ./users_db.py:/app/users_db.py
     - ./orders_db.py:/app/orders_db.py
-    - ./local_db_for_actions.py:/app/local_db_for_actions.py
 
     command: ["rasa", "run","-m models", "--enable-api", "--cors","“*”", "-p 5006"]
     ports:
@@ -39,7 +38,6 @@ services:
     - ./krg_address.db:/app/krg_address.db
     - ./users_db.py:/app/users_db.py
     - ./orders_db.py:/app/orders_db.py
-    - ./local_db_for_actions.py:/app/local_db_for_actions.py
 
     command: ["rasa", "run", "actions"]
     ports:

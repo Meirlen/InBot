@@ -82,6 +82,7 @@ def get_order_status_by_conversation_id(chat_id):
                 url = url,
             ).json()
             order_status = response['slots']['order_status']
+            order_status = response['slots']['order_status']
 
             return order_status
 
@@ -117,6 +118,7 @@ def call_default_action_help_in_10_second(conversation_id,action_name,delay_time
     p.start()    
 
 
+print()
 
 
 # items = []

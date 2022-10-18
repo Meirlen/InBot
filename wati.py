@@ -131,9 +131,9 @@ def create_body_ask_to_address(from_address):
     #    footer = None 
     footer = ''
 
-    # request_body = MenuRequestBody(header, body,footer,"Меню",sections)
+    request_body = MenuRequestBody(header, body,footer,"Меню",sections)
 
-    return body   
+    return request_body   
 
 
 def create_body_finish_state(body):
@@ -489,4 +489,3 @@ def get_contacts():
    
 
 
-# create_body_ask_to_address("mjnnn")

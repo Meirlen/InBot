@@ -9,7 +9,7 @@ from telegram_api import send_message_to_telegram_chat
 
 URL = "https://stt.api.cloud.yandex.net/speech/v1/stt:recognize"
 # if token has expired need to get new token by this cmd : yc iam create-token
-IAM_TOKEN = "t1.9euelZqXkZKViYyXypadicaNlZzLiu3rnpWamceRiomUkM6Xl8iVipSTjJfl9PcWO3lp-e9kQgiI3fT3Vml2afnvZEIIiA.DOht3aaX-IVy3BxTozFRISTiZrfuowNfJ_tnKmMqqYKGtzLd5lskoX6iHAsDesPW9KOnbLKMvAdGlQ_Yjtp2Cg"
+IAM_TOKEN = "t1.9euelZrNmpzPnZjHkZySkcnNlpyJku3rnpWamceRiomUkM6Xl8iVipSTjJfl8_d7dhFr-e96KnMq_N3z9zslD2v573oqcyr8.27iw70SOIzC5nrqzVbldc338cYDgcFhweAQasXiBHZzrpsxEy9C_lIXY2Eh8GJRD8EGa8aiuL4HuV69VGDj4Cw"
 ID_FOLDER = "b1gp0hehtija7evf2j1g"
 
 

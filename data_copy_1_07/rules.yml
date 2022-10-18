@@ -1,0 +1,119 @@
+version: "2.0"
+
+rules:
+
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+
+# - rule: confirm_template
+#   steps:
+#   - intent: confirm
+#   - action: action_handle_user_flow_step_1
+
+# - rule: Say goodbye anytime the user says goodbye
+#   steps:
+#   - intent: price
+#   - action: action_calc_price  
+
+
+# - rule: Return to main menu everytime in telegram
+#   steps:
+#   - intent: start
+#   - action: action_start
+
+# - rule: Return to main menu everytime in telegram
+#   steps:
+#   - intent: start
+#   - action: auth_form
+#   - active_loop: auth_form
+#   - slot_was_set:
+#     - requested_slot: phone_number
+#   - slot_was_set:
+#     - phone_number: 8 777 485 71 33
+#   - slot_was_set:
+#     - requested_slot: null  
+#   - active_loop: null
+#   - action: action_service_menu
+
+
+- rule: cancel_order
+  steps:
+  - intent: cancel_fill_adress
+  - action: utter_greet_secondary
+
+
+# - rule: greet secondary
+#   steps:
+#   - intent: greet
+#   - action: utter_greet_secondary
+
+- rule: Ask the user to rephrase whenever they send a message with low NLU confidence
+  steps:
+  - intent: nlu_fallback
+  - action: utter_please_rephrase
+
+- rule: say wating time
+  steps:
+  - intent: client_ask_car_after
+  - action: utter_say_wait_time_car
+
+# - rule: Activate address form
+#   steps:
+#   - intent: greet_ask_taxi
+#   - action: address_form
+#   - active_loop: address_form
+
+# - rule: cancle adress form
+#   steps: 
+#   - intent: cancel_fill_adress
+#   - action: action_deactivate_loop
+#   - active_loop: null
+#   - slot_was_set:
+#     - requested_slot: null
+#   - action: utter_order_canelled
+#   - action: action_restart
+
+# - rule: add comment to the order
+#   steps: 
+#   - intent: add_comment
+#   - action: action_add_comment
+
+
+# - rule: Cancel order
+#   steps:
+#   - intent: cancel_fill_adress
+#   - action: action_restart
+
+
+
+
+# - rule: type_car_form
+#   steps: 
+#   - intent: deny
+#   - action: action_deactivate_loop
+#   - active_loop: null
+#   - slot_was_set:
+#     - requested_slot: null
+#   - action: utter_type_car_form_cancelled
+#   - action: action_restart
+
+# - rule: Submit adress form
+#   condition:
+#   - active_loop: address_form
+#   steps:
+#   - action: address_form
+#   - active_loop: address_form
+#   - slot_was_set:
+#     - requested_slot: from_address
+#   - slot_was_set:
+#     - requested_slot: to_address  
+#   - slot_was_set:
+#     - from_address: караганды 16 мкр
+#   - slot_was_set:
+#     - to_address: ботаническая 8 
+#   - active_loop: null
+#   - action: utter_address_slots

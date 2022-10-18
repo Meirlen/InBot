@@ -123,7 +123,7 @@ def delete_user_by_phone_number(phone_number):
 
 # drop_table()
 # create_table()
-# delete_user_by_phone_number('95')
+# delete_user_by_phone_number('98')
 # # update_all_status('free')
 # # update_status("95",'car_arrived')
 

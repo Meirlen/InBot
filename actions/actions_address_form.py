@@ -14,7 +14,7 @@ from actions.app_constans import *
 from helper.Utils import *
 from telegram_api import *
 from callbot_api import *
-from local_db_for_actions import *
+from actions.local_db_for_actions import *
 from actions.action_helper import *
 from actions.price.address_validator import *
 from actions.price.bi_address_validator import *
@@ -57,7 +57,14 @@ class ValidateAddressForm(FormValidationAction):
 
 
         phone_number = phone_number_validate(slot_value)
+   
+        dispatcher.utter_message(
+                        text="Номер"+str(tracker.latest_message["metadata"]),kwargs=get_phone_number(tracker))
+
+
+        print('PHONE NUM',phone_number)
         if phone_number == None:
+                
                 if is_whatsapp(tracker) and slot_value == 'да':
                     if is_auth_user(user_id) == None:
                         insert_new_user(name, user_id, phone_number_from_meta_data(tracker),platform_from_meta_data(tracker))
@@ -69,7 +76,7 @@ class ValidateAddressForm(FormValidationAction):
 
         else:
             if is_auth_user(user_id) == None:
-                insert_new_user(name, user_id, phone_number,platform_from_meta_data(tracker))
+                    insert_new_user(name, user_id, phone_number,platform_from_meta_data(tracker))
 
             return {"phone_number":  phone_number,"chat_id":  user_id, "platform_id":  platform_id}
 
@@ -242,7 +249,6 @@ class ValidateAddressForm(FormValidationAction):
         last_intent = tracker.get_intent_of_latest_message()
 
         print('validate_order_status last intent: ' + str(last_intent))
-        phone_number = tracker.get_slot('phone_number')
 
         if is_require_human_help(tracker):
             return {"order_confirm": None}

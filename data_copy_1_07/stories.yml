@@ -1,0 +1,551 @@
+version: "2.0"
+
+stories:
+
+# Triggers for address form, when the user has not current order
+- story: trigger_for_street_form
+  steps:
+  - or:
+    - intent: greet
+    - intent: order
+    - intent: greet+order
+    - intent: bi_direct
+    - intent: address_undefined
+    - intent: bi_direct_info
+    - intent: bi_direct_2info
+    - intent: order
+    - intent: greet+order
+    - intent: street+organization
+    - intent: address
+    - intent: order+adress
+    - intent: start
+    - intent: profile
+    - intent: price
+  - slot_was_set:
+    - order_status: free  
+  - checkpoint: check_address_triggers
+
+- story: confirm_order
+  steps:
+  - intent: confirm
+  - slot_was_set:
+    - order_status: free  
+  - action: action_confirm_order  
+  
+
+- story: car_arrived_state
+  steps:
+  - or:
+    - intent: greet
+    - intent: order
+    - intent: greet+order
+    - intent: bi_direct
+    - intent: address_undefined
+    - intent: bi_direct_info
+    - intent: bi_direct_2info
+    - intent: order
+    - intent: greet+order
+    - intent: street+organization
+    - intent: address
+    - intent: order+adress
+    - intent: start
+    - intent: profile
+    - intent: price
+    - intent: confirm
+  - slot_was_set:
+    - order_status: car_arrived 
+  - checkpoint: check_address_triggers
+
+
+
+# address form
+- story: story_fill_address
+  steps:
+  - checkpoint: check_address_triggers
+  - action: action_check_address_entity_1
+  - action: address_form
+  - active_loop: address_form
+  - slot_was_set:
+    - requested_slot: phone_number
+  - slot_was_set:
+    - phone_number: phone_number  
+  - slot_was_set:
+    - requested_slot: from_address
+  - slot_was_set:
+    - from_address: караганды 16 мкр  
+  - slot_was_set:
+    - requested_slot: from_house_number
+  - slot_was_set:
+    - from_house_number: 77
+  - slot_was_set:
+    - requested_slot: from_apartment_number
+  - slot_was_set:
+    - from_apartment_number: 15
+  - slot_was_set:
+    - requested_slot: to_address   
+  - slot_was_set:
+    - to_address: ботаническая 8 
+  - slot_was_set:
+    - requested_slot: order_confirm
+  - slot_was_set:
+    - order_confirm: ok
+  - slot_was_set:
+    - requested_slot: comments
+  - slot_was_set:
+    - comments: мы стоим на углу
+  - slot_was_set:
+    - requested_slot: null  
+  - active_loop: null
+  - action: action_handle_user_flow_step_1
+
+
+
+
+
+#  Story when user choose template
+# # Triggers for address form, when the user has not current order
+# - story: confirm_template
+#   steps:
+#   - intent: confirm
+#   - slot_was_set:
+#     - order_status: free  
+#   - action: action_handle_user_flow_step_1
+
+
+
+# - story: happy_path_confirm_order_2
+#   steps:
+#   - intent: greet_ask_taxi
+#   - action: address_form
+#   - active_loop: address_form
+#   # This unhappy path handle the case of intent 'pause_conversation'
+#   - intent: confirm
+#   - action: utter_undefined_question
+#   # return to adress form
+#   - action: address_form
+#   - active_loop: address_form
+#   - slot_was_set:
+#     - requested_slot: from_address
+#   - slot_was_set:
+#     - requested_slot: to_address  
+#   - slot_was_set:
+#     - from_address: караганды 16 мкр
+#   - slot_was_set:
+#     - to_address: ботаническая 8 
+#   - active_loop: null
+#   - action: utter_address_slots
+#   - intent: confirm
+#   - action: utter_send_car
+
+  
+
+- story: show_order_confirmed_when_order_wait_car
+  steps:
+  - or:
+    - intent: greet
+    - intent: order
+    - intent: greet+order
+    - intent: bi_direct
+    - intent: address_undefined
+    - intent: bi_direct_info
+    - intent: bi_direct_2info
+    - intent: order
+    - intent: greet+order
+    - intent: street+organization
+    - intent: address
+    - intent: order+adress
+    - intent: start
+    - intent: confirm
+    - intent: profile
+    - intent: bonus
+    - intent: history
+    - intent: price
+  - slot_was_set:
+    - order_status: wait_car  
+  - action: action_handle_user_flow_step_1
+
+
+
+
+
+- story: restart
+  steps:
+  - intent: restart
+  - action: action_restart
+  # - checkpoint: check_address_triggers
+
+# - story: profile
+#   steps:
+#   - intent: profile
+#   - action: action_profile
+
+
+#  handle user confirm adress
+# - story: confirm_adress
+#   steps:
+#   - checkpoint: check_adress_filled_for_trip
+#   - or:
+#     - intent: confirm
+#     - intent: thanks
+#   - action: utter_address_slots
+#   - or:
+#     - intent: confirm
+#     - intent: thanks
+#   - action: utter_wish_pleasant_trip  
+
+
+
+# Status ORDER CREATED 
+# во время ORDER CREATED  у клиента появляется 3 кнопки
+# - story: confirm_created_order
+#   steps:
+#   - or:
+#     - intent: bi_direct
+#     - intent: bi_direct_info
+#     - intent: bi_direct_2info
+#     - intent: order
+#     - intent: greet+order
+#     - intent: street+organization
+#     - intent: address
+#     - intent: order+adress
+#     - intent: client_ask_car_after
+#   - slot_was_set:
+#     - order_status: created
+#   - action: action_confirm
+ 
+
+# # После заполнения всех адресов у юзера 3 сценария:
+# # Заказать сейчас, Добавить комментарий, Отменить
+
+# # Confirm 
+# - story: confirm_created_order
+#   steps:
+#   - checkpoint: check_adress_filled_for_trip
+#   - intent: confirm
+#   - slot_was_set:
+#     - order_status: created
+#   - action: action_handle_user_flow_step_1
+
+# # Cancel
+# - story: cancel_created_order
+#   steps:
+#   - checkpoint: check_adress_filled_for_trip
+#   - intent: cancel_fill_adress
+#   - slot_was_set:
+#     - order_status: created
+#   - action: action_restart
+
+# # Comment
+# - story: add_comment_to_created_order
+#   steps:
+#   - checkpoint: check_adress_filled_for_trip
+#   - intent: add_comment
+#   - slot_was_set:
+#     - order_status: created
+#   - action: action_add_comment
+
+# #--------------------------------------------------
+# # Адреса заполнены клиент нажал на Заказать и ждет машину
+# # Status ORDER WAIT_CAR
+# - story: cancel_order_wait_car
+#   steps:
+#   - or:
+#     - intent: bi_direct
+#     - intent: bi_direct_info
+#     - intent: bi_direct_2info
+#     - intent: order
+#     - intent: greet+order
+#     - intent: street+organization
+#     - intent: address
+#     - intent: order+adress
+#     - intent: confirm
+#     - intent: client_ask_car_after
+#   - slot_was_set:
+#     - order_status: wait_car
+#   - intent: cancel_fill_adress
+#   - action: action_restart
+
+
+# - story: trigger_order_wait_car
+#   steps:
+#   - or:
+#     - intent: bi_direct
+#     - intent: bi_direct_info
+#     - intent: bi_direct_2info
+#     - intent: order
+#     - intent: greet+order
+#     - intent: street+organization
+#     - intent: address
+#     - intent: order+adress
+#     - intent: confirm
+#     - intent: client_ask_car_after
+#   - slot_was_set:
+#     - order_status: wait_car
+#   - action: action_handle_user_flow_step_2
+
+
+#--------------------------------------------------
+# 
+# # Status ORDER ADD_COMMENT
+# - story: trigger_order_add_comment
+#   steps:
+#   - or:
+#     - intent: bi_direct
+#     - intent: bi_direct_info
+#     - intent: bi_direct_2info
+#     - intent: order
+#     - intent: greet+order
+#     - intent: street+organization
+#     - intent: address
+#     - intent: order+adress
+#     - intent: confirm
+#     - intent: client_ask_car_after
+#   - slot_was_set:
+#     - order_status: comment
+#   - action:  action_save_comment
+
+
+
+
+# #  handle user deny
+# - story: deny_adress
+#   steps:
+#   - checkpoint: check_adress_filled_for_trip
+#   - intent: deny
+#   - action: utter_goodbye_after_deny
+
+#     # - intent: 
+#     # - intent: greet+order
+
+# # ask price happy path
+# - story: happy_ask_price
+#   steps:
+#   - or:
+#     - intent: price
+#     - intent: greet+price
+#     - intent: price+comfort
+#     - intent: price+bi_direct_adress                              #  можно узнать цену с кривогуза ?
+#   - action: action_check_address_entity                  #  [кривогуза](address_name)  город(address_name)
+#   - action: ask_price_form                               #  если адресс не указан или указан только 1 адресс запускаем форму?
+#   - active_loop: ask_price_form                          #  FORM ACTIVATE:
+#   - slot_was_set:                                        #  откуда куда?
+#     - requested_slot: from_address_for_price             #  с кривогуза   в город
+#   - slot_was_set:                                        #  [кривогуза](address_name)  город(address_name) 
+#     - requested_slot: to_address_for_price               #  SLOT FILL:
+#   - slot_was_set:                                        #  from_address_for_price =  кривогуза
+#     - from_address_for_price: караганды 16 мкр           #  to_address_for_price =  город 
+#   - slot_was_set:
+#     - to_address_for_price: ботаническая 8               
+#   - active_loop: null                                    #  FORM DEACTIVATE:
+#   - action: action_calculate_price                       #  Оплата 3000, оформить заказ?
+#   - intent: confirm                                      #  Да оформляйте
+#   - action: utter_make_order                             #  Хорошо, оформляем заказ 
+#   - checkpoint: check_address_triggers
+
+
+
+
+# # ask free car
+# - story: ask free car
+#   steps:
+#   - or:
+#     - intent: free_car+adress
+#     - intent: free_car                                    
+#   - action: utter_have_free_car
+#   - checkpoint: check_address_triggers
+
+
+
+# # ask universal car
+# - story: ask_universal_car
+#   steps:
+#   - intent: universal                                    
+#   - action: utter_universal_car_price
+#   - intent: confirm                                     
+#   - checkpoint: check_address_triggers
+
+
+# # ask universal car cancel
+# - story: ask_universal_car
+#   steps:
+#   - intent: universal                                    
+#   - action: utter_universal_car_price
+#   - intent: deny                                     
+#   - action: utter_type_car_form_cancelled
+
+
+# # ask specify car happy path
+# - story: comfort car
+#   steps:
+#   - intent: comfort
+#   # activate сomfort car form
+#   - action: type_car_form
+#   - active_loop: type_car_form
+#   - slot_was_set:
+#     - requested_slot: car_type
+#   - slot_was_set:
+#     - requested_slot: car_model  
+#   - slot_was_set:
+#     - car_type: комфорт
+#   - slot_was_set:
+#     - car_model: лексус 
+#   - active_loop: null
+# #   # deactivate сomfort car form      
+#   - checkpoint: check_address_triggers
+
+# # ask specify car cancel
+# - story: comfort car
+#   steps:
+#   - intent: comfort
+#   # activate сomfort car form
+#   - action: type_car_form
+#   - active_loop: type_car_form
+#   - intent: deny
+#   - action: action_deactivate_loop
+#   - active_loop: null
+#   - slot_was_set:
+#     - requested_slot: null
+#   - action: utter_type_car_form_cancelled
+#   - slot_was_set:
+#     - requested_slot: car_type
+#   - slot_was_set:
+#     - requested_slot: car_model  
+#   - slot_was_set:
+#     - car_type: комфорт
+#   - slot_was_set:
+#     - car_model: лексус 
+#   - active_loop: null
+#   # deactivate сomfort car form      
+#   - checkpoint: check_address_triggers
+
+# # ask specify car not exist
+# - story: car_type_not_exist
+#   steps:
+#   - intent: car_type_not_exist
+#   - action: utter_answer_car_type_not_exist
+#   - or:
+#     - intent: confirm
+#     - intent: thanks
+#   - action: utter_goodbye
+
+
+# # трезвый водитель
+# - story: ask sober driver
+#   steps:
+#   - intent: sober_driver
+#   - action: utter_answer_sober_driver
+#   - or:
+#     - intent: confirm
+#     - intent: thanks
+#   - checkpoint: check_address_triggers
+
+# # заказ нескольких машин которые едут на один адрес
+# - story: order multiple cars
+#   steps:
+#   - intent: order_multiple_cars
+#   # activate address form  
+#   - action: address_form_for_2_cars
+#   - active_loop: address_form_for_2_cars
+#   # This unhappy path handle the case of intent 'confirm'
+#   - intent: confirm
+#   - action: action_multiple_car 
+#   # return to adress form
+#   - action: address_form_for_2_cars
+#   - active_loop: address_form_for_2_cars
+#   - slot_was_set:
+#     - requested_slot: from_address
+#   - slot_was_set:
+#     - requested_slot:  to_address_first_car 
+#   - slot_was_set:
+#     - requested_slot:  to_address_second_car
+#   - slot_was_set:
+#     - from_address: караганды 16 мкр
+#   - slot_was_set:
+#     - to_address_first_car: ботаническая 8 
+#   - slot_was_set:
+#     - to_address_second_car: ботаническая 8   
+#   - active_loop: null
+#   - action: utter_address_slots
+#   - checkpoint: check_adress_filled_for_trip
+
+
+# # заказ нескольких машин которые едут на разные адреса
+# - story: order multiple cars
+#   steps:
+#   - intent: order_multiple_cars
+#   # activate address form  
+#   - action: address_form_for_2_cars
+#   - active_loop: address_form_for_2_cars
+#   - slot_was_set:
+#     - requested_slot: from_address
+#   - slot_was_set:
+#     - requested_slot:  to_address_first_car 
+#   - slot_was_set:
+#     - requested_slot:  to_address_second_car
+#   - slot_was_set:
+#     - from_address: караганды 16 мкр
+#   - slot_was_set:
+#     - to_address_first_car: ботаническая 8 
+#   - slot_was_set:
+#     - to_address_second_car: ботаническая 89   
+#   - active_loop: null
+#   - action: utter_address_slots
+#   - checkpoint: check_adress_filled_for_trip  
+
+
+
+# - story: reservation car
+#   steps:
+#   - intent: order_reservation
+#   # activate reservation form
+#   - action: reservation_form
+#   - active_loop: reservation_form
+#   - slot_was_set:
+#     - requested_slot: date
+#   - slot_was_set:
+#     - requested_slot: time 
+#   - slot_was_set:
+#     - date: 28 октября
+#   - slot_was_set:
+#     - time: 4:30 
+#   - active_loop: null
+#   # deactivate reservation form      
+#   - checkpoint: check_address_triggers
+
+
+
+
+
+
+# - story: happy_path_confirm_order_2
+#   steps:
+#   - intent: greet_ask_taxi
+#   - action: address_form
+#   - active_loop: address_form
+#   # This unhappy path handle the case of intent 'pause_conversation'
+#   - intent: confirm
+#   - action: utter_undefined_question
+#   # return to adress form
+#   - action: address_form
+#   - active_loop: address_form
+#   - slot_was_set:
+#     - requested_slot: from_address
+#   - slot_was_set:
+#     - requested_slot: to_address  
+#   - slot_was_set:
+#     - from_address: караганды 16 мкр
+#   - slot_was_set:
+#     - to_address: ботаническая 8 
+#   - active_loop: null
+#   - action: utter_address_slots
+#   - intent: confirm
+#   - action: utter_send_car
+
+  
+# # test actions
+# - story: test_case
+#   steps:
+#   - intent: greet_ask_taxi_from_gen_address_house_number_apartment_number_probablity
+#   - action: action_test_address_ner
+
+
